@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<gameinfo>
+    <name>My Testgame</name>
+    <subTitle>Made with LITIENGINE!</subTitle>
+    <description>A game, that was implemented with the LITIENGINE.</description>
+    <website>https://litiengine.com</website>
+    <version>v1.0.0</version>
+    <company>gurkenlabs.de</company>
+    <developer>Steffen Wilke</developer>
+    <developer>Matthias Wilke</developer>
+</gameinfo>
