@@ -12,6 +12,5 @@ public class Main {
         Game.screens().add(new TestScreen());
 //        Game.screens().display("TEST");
         Game.start();
-        //test
     }
 }
