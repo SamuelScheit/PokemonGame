@@ -18,4 +18,3 @@ public class TestScreen extends GameScreen {
         Game.graphics().renderText(g, "my text", 0,0);
     }
 }
-cbklwj
