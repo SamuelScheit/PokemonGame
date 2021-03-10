@@ -12,7 +12,9 @@
    eJzt0ksKgDAMBND6q5+qVfT+Z3UCCZSuYgl0oQMPC8JgUp37dhpooYPeoG+ECWZYDPo22CHCYdBHCTCA52eqZB/SJy64ub9kH9S3Mp+cSck+8u/L0ftT0SMzBAVNLO/0Taz+TUmtOf7UzwNaCwKc
   </data>
    </layer>
-   <objectgroup id="0" name="default" visible="1"/>
+   <objectgroup id="0" name="default" visible="1">
+    <object id="2" name="enter" type="SPAWNPOINT" x="288" y="256" width="32" height="32"/>
+   </objectgroup>
   </map>
  </maps>
  <spriteSheets>
