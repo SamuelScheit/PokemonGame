@@ -12,6 +12,8 @@ public class Main {
         Game.screens().add(new TestScreen());
 //        Game.screens().display("TEST");
         Game.world().loadEnvironment("start");
+        GameLogic.init();
+        PlayerInput.init();
 
         Game.start();
         //test
