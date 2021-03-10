@@ -11,7 +11,7 @@ public class Main {
         Game.addGameListener(new Listener());
         Game.screens().add(new TestScreen());
 //        Game.screens().display("TEST");
-        Game.world().loadEnvironment("assets/Test Pokemon Game");
+        Game.world().loadEnvironment("start");
 
         Game.start();
         //test
