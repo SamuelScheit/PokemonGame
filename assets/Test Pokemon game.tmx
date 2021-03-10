@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <map version="1.4" tiledversion="1.4.3" orientation="orthogonal" renderorder="right-down" width="20" height="20" tilewidth="32" tileheight="32" infinite="0" nextlayerid="2" nextobjectid="1">
- <tileset firstgid="1" source="Pokemon test.tsx"/>
+ <tileset firstgid="1" source="tilemap.tsx"/>
  <layer id="1" name="Kachelebene 1" width="20" height="20">
   <data encoding="base64" compression="zlib">
    eJzt0ksKgDAMBND6q5+qVfT+Z3UCCZSuYgl0oQMPC8JgUp37dhpooYPeoG+ECWZYDPo22CHCYdBHCTCA52eqZB/SJy64ub9kH9S3Mp+cSck+8u/L0ftT0SMzBAVNLO/0Taz+TUmtOf7UzwNaCwKc
