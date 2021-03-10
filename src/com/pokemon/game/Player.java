@@ -2,7 +2,7 @@ package com.pokemon.game;
 
 import de.gurkenlabs.litiengine.IUpdateable;
 import de.gurkenlabs.litiengine.entities.*;
-import de.gurkenlabs.litiengine.input.PlatformingMovementController;
+import de.gurkenlabs.litiengine.input.KeyboardEntityController;
 
 @EntityInfo(width = 18, height = 18)
 @MovementInfo(velocity = 70)
@@ -10,7 +10,6 @@ import de.gurkenlabs.litiengine.input.PlatformingMovementController;
 public class Player extends Creature implements IUpdateable {
 
     private static Player instance;
-    private int consecutiveJumps;
 
     public static Player instance() {
         if (instance == null) {
@@ -21,12 +20,11 @@ public class Player extends Creature implements IUpdateable {
     }
 
     private Player() {
-        super("gurknukem");
+        super("player");
         // setup movement controller
-        this.addController(new PlatformingMovementController<>(this));
+        this.addController(new KeyboardEntityController<>(this));
     }
 
     @Override public void update() {
-
     }
 }
