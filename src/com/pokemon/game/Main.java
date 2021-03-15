@@ -9,10 +9,10 @@ public class Main {
         Game.init(args);
         Resources.load("assets/game.litidata");
         Game.addGameListener(new Listener());
-        Game.screens().add(new TestScreen());
+        Game.screens().add(new InGameScreen());
         PlayerInput.init();
         GameLogic.init();
-        Game.world().loadEnvironment("start");
+        Game.screens().display("ingame");
 
         Game.start();
     }

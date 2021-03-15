@@ -9,7 +9,7 @@ import java.awt.event.KeyEvent;
 
 @EntityInfo(width = 18, height = 18)
 @MovementInfo(velocity = 70)
-@CollisionInfo(collisionBoxWidth = 8, collisionBoxHeight = 16, collision = false)
+@CollisionInfo(collisionBoxWidth = 8, collisionBoxHeight = 16, collision = true)
 public class Player extends Creature implements IUpdateable {
 
     private static Player instance;
@@ -27,14 +27,9 @@ public class Player extends Creature implements IUpdateable {
         // setup movement controller
         KeyboardEntityController<Player> movementController = new KeyboardEntityController<>(this);
         movementController.addUpKey(KeyEvent.VK_UP);
-        movementController.addUpKey(KeyEvent.VK_W);
         movementController.addDownKey(KeyEvent.VK_DOWN);
-        movementController.addDownKey(KeyEvent.VK_S);
         movementController.addLeftKey(KeyEvent.VK_LEFT);
-        movementController.addLeftKey(KeyEvent.VK_A);
         movementController.addRightKey(KeyEvent.VK_RIGHT);
-        movementController.addRightKey(KeyEvent.VK_D);
-        System.out.println("player instance");
 
         this.setController(IMovementController.class, movementController);
     }
