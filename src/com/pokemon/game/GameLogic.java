@@ -11,9 +11,7 @@ public class GameLogic {
         Camera camera = new PositionLockCamera(Player.instance());
         camera.setClampToMap(true);
         Game.world().setCamera(camera);
-
-        // set a basic gravity for all levels.
-        Game.world().setGravity(120);
+        // Game.world().setGravity(120);
 
         // add default game logic for when a level was loaded
         Game.world().onLoaded(e -> {

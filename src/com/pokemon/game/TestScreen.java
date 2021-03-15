@@ -7,7 +7,7 @@ import java.awt.*;
 
 public class TestScreen extends GameScreen {
     public TestScreen() {
-        super("TEST");
+        super("test");
     }
 
     @Override
@@ -15,6 +15,7 @@ public class TestScreen extends GameScreen {
         super.render(g);
 
         g.setColor(Color.RED);
-        Game.graphics().renderText(g, "my text", 0,0);
+
+        Game.graphics().renderText(g, "my text", 250,250);
     }
 }

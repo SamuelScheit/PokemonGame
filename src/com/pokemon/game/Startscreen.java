@@ -9,7 +9,7 @@ import java.awt.*;
 
 public class Startscreen extends GameScreen {
     public Startscreen() {
-        super("SC");
+        super("start");
     }
 
     @Override
