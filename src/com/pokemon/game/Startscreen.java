@@ -9,7 +9,7 @@ import java.awt.*;
 
 public class Startscreen extends GameScreen {
     public Startscreen() {
-        super("SC");
+        super("start");
     }
 
     @Override
@@ -20,6 +20,4 @@ public class Startscreen extends GameScreen {
         Game.graphics().renderText(g, "my text", 0,0);
 
     }
-
-
 }

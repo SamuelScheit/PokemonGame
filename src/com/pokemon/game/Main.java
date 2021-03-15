@@ -10,14 +10,11 @@ public class Main {
         Resources.load("assets/game.litidata");
         GameStatus status = new GameStatus(true);
         Game.addGameListener(new Listener());
-        Game.screens().add(new TestScreen(status));
-//        Game.screens().display("TEST");
-        Game.world().loadEnvironment("start");
-        GameLogic.init();
+        Game.screens().add(new InGameScreen(status);
         PlayerInput.init(status);
-
+        GameLogic.init();
+        Game.screens().display("ingame");
 
         Game.start();
-        //test
     }
 }

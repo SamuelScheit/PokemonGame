@@ -9,14 +9,11 @@ import de.gurkenlabs.litiengine.gui.screens.GameScreen;
 import java.awt.*;
 import java.awt.geom.Rectangle2D;
 
-public class TestScreen extends GameScreen {
+public class InGameScreen extends GameScreen {
     private GameStatus gameStatus;
-
-    public TestScreen(GameStatus status) {
-        super("TEST");
+    public InGameScreen() {
+        super("ingame");
         gameStatus = status;
-
-
     }
 
 
