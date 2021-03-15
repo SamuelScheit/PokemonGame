@@ -10,8 +10,9 @@ import java.awt.*;
 import java.awt.geom.Rectangle2D;
 
 public class InGameScreen extends GameScreen {
+
     private GameStatus gameStatus;
-    public InGameScreen() {
+    public InGameScreen(GameStatus status) {
         super("ingame");
         gameStatus = status;
     }
