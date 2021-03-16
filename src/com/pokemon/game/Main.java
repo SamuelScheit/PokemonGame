@@ -8,14 +8,13 @@ public class Main {
         Game.setInfo("assets/gameinfo.xml");
         Game.init(args);
         Resources.load("assets/game.litidata");
+        GameStatus status = new GameStatus(true);
         Game.addGameListener(new Listener());
-        Game.screens().add(new TestScreen());
-//        Game.screens().display("TEST");
-        Game.world().loadEnvironment("start");
+        Game.screens().add(new InGameScreen(status));
+        PlayerInput.init(status);
         GameLogic.init();
-        PlayerInput.init();
+        Game.screens().display("ingame");
 
         Game.start();
-        //test
     }
 }

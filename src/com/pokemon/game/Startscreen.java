@@ -37,10 +37,5 @@ public class Startscreen extends GameScreen {
 
     }
 
-    public void setFontSize(){
-    }
-
-
-
 
 }
