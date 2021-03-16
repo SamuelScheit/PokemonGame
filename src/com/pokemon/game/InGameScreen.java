@@ -30,7 +30,7 @@ public class InGameScreen extends GameScreen {
                 Rectangle2D rectangle = new Rectangle();
                 rectangle.setRect(300, 140, 150, 50);
                 Game.graphics().renderOutline(g, rectangle);
-                TextRenderer.render(g, nextDialog, 350, 140);
+                TextRenderer.render(g, nextDialog, 100, 700);
             }
         }
     }
