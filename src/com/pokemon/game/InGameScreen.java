@@ -17,7 +17,6 @@ public class InGameScreen extends GameScreen {
         gameStatus = status;
     }
 
-
     @Override
     public void render(final Graphics2D g) {
         super.render(g);

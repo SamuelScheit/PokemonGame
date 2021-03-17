@@ -10,9 +10,8 @@ public class Main {
         Resources.load("assets/game.litidata");
         GameStatus status = new GameStatus(true);
         Game.addGameListener(new Listener());
-        Game.screens().add(new Startscreen());
-//        Game.screens().display("TEST");
-        Game.world().loadEnvironment("start");
+        Game.screens().add(new InGameScreen(status));
+        Game.world().loadEnvironment("map1");
         GameLogic.init();
         Game.screens().display("ingame");
 

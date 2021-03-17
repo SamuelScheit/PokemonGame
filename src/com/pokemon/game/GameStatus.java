@@ -28,7 +28,5 @@ public class GameStatus {
         } else {
             nextDialog = "fehler";
         }
-
-
     }
 }

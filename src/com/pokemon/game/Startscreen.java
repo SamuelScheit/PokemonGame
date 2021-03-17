@@ -8,8 +8,6 @@ import de.gurkenlabs.litiengine.gui.screens.Resolution;
 
 import java.awt.*;
 
-
-
 public class Startscreen extends GameScreen {
     public Startscreen() {
         super("SC");
@@ -33,9 +31,5 @@ public class Startscreen extends GameScreen {
 
         g.setColor(Color.BLUE);
         Game.graphics().renderText(g, "Quit Game", 530,300);
-
-
     }
-
-
 }
