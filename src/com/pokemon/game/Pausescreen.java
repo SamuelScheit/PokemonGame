@@ -11,11 +11,20 @@ public class Pausescreen extends GameScreen {
         super("PAUSE");
     }
 
+
+
+    public void toggle() {
+        // TODO toggle
+        Game.screens().display("PAUSE");
+    }
+
     @Override
     public void render(final Graphics2D g) {
         super.render(g);
 
         g.setFont(new Font("Arial",0,40));
+
+        g.setFont(new Font("Arial",Font.PLAIN,50));
 
         g.setColor(Color.red);
         TextRenderer.render(g, "Pause", 800,150);
