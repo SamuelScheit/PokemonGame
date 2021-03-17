@@ -17,7 +17,7 @@ public class Startscreen extends GameScreen {
     public void render(final Graphics2D g) {
         super.render(g);
 
-        g.setFont(new Font("Arial",Font.BOLD,50));
+        g.setFont(new Font("Arial",Font.PLAIN,50));
 
         g.setColor(Color.RED);
         TextRenderer.render(g, "Pokemon", 300,100);

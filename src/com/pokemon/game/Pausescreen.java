@@ -14,6 +14,8 @@ public class Pausescreen extends GameScreen {
     public void render(final Graphics2D g) {
         super.render(g);
 
+        g.setFont(new Font("Arial",Font.PLAIN,50));
+
         g.setColor(Color.red);
         Game.graphics().renderText(g, "Pause", 275,50);
 
