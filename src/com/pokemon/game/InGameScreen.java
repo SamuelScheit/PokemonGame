@@ -22,6 +22,8 @@ public class InGameScreen extends GameScreen {
     public void render(final Graphics2D g) {
         super.render(g);
 
+        g.setFont(new Font("Arial",Font.PLAIN,50));
+
         g.setColor(Color.RED);
         Game.graphics().renderText(g, "my text", 225, 140);
         if (gameStatus.isStartup()) {
