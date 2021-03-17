@@ -1,7 +1,6 @@
 package com.pokemon.game;
 
 import de.gurkenlabs.litiengine.Game;
-import de.gurkenlabs.litiengine.gui.screens.GameScreen;
 import de.gurkenlabs.litiengine.resources.Resources;
 
 public class Main {
@@ -11,9 +10,9 @@ public class Main {
         Resources.load("assets/game.litidata");
         GameStatus status = new GameStatus(true);
         Game.addGameListener(new Listener());
-        Game.screens().add(new GameScreen());
+        Game.screens().add(new Pausescreen());
 //        Game.screens().display("TEST");
-        Game.world().loadEnvironment("start");
+        Game.world().loadEnvironment("map1");
         GameLogic.init();
         Game.screens().display("ingame");
 

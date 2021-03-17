@@ -3,9 +3,7 @@ package com.pokemon.game;
 public class GameDialogs {
     private int introcount;
 
-    private static final String[] INTRO = new String[]{
-            "Intro1", "Intro2", "Intro3"
-    };
+    private static final String[] INTRO = new String[]{ "Intro1", "Intro2", "Intro3" };
 
     public String getNextIntroText() {
         String textString;
@@ -16,10 +14,7 @@ public class GameDialogs {
             introcount = introcount + 1;
         }
 
-
         return textString;
     }
-
-
 }
 
