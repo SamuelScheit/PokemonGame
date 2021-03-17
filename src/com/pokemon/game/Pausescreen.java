@@ -10,6 +10,13 @@ public class Pausescreen extends GameScreen {
         super("PAUSE");
     }
 
+
+
+    public void toggle() {
+        // TODO toggle
+        Game.screens().display("PAUSE");
+    }
+
     @Override
     public void render(final Graphics2D g) {
         super.render(g);
@@ -31,6 +38,5 @@ public class Pausescreen extends GameScreen {
 
         g.setColor(Color.yellow);
         Game.graphics().renderText(g, "Quit Game",275,270);
-
     }
 }
