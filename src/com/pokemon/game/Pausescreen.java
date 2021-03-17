@@ -28,10 +28,7 @@ public class Pausescreen extends GameScreen {
         Game.graphics().renderText(g, "Return to Home", 275,220);
 
         g.setColor(Color.yellow);
-        Game.graphics().renderText(g, "Quit Game",275,270, getClickConsumer().add(System.exit(0)));
-
-
-
+        Game.graphics().renderText(g, "Quit Game",275,270);
 
     }
 }

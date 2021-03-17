@@ -23,7 +23,7 @@ public class Player extends Creature implements IUpdateable {
     }
 
     private Player() {
-        super("player");
+        super("gurknukem");
         // setup movement controller
         KeyboardEntityController<Player> movementController = new KeyboardEntityController<>(this);
         movementController.addUpKey(KeyEvent.VK_UP);
@@ -35,5 +35,6 @@ public class Player extends Creature implements IUpdateable {
     }
 
     @Override public void update() {
+
     }
 }
