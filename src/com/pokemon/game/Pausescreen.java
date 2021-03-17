@@ -1,6 +1,7 @@
 package com.pokemon.game;
 
 import de.gurkenlabs.litiengine.Game;
+import de.gurkenlabs.litiengine.graphics.TextRenderer;
 import de.gurkenlabs.litiengine.gui.screens.GameScreen;
 
 import java.awt.*;
@@ -14,21 +15,23 @@ public class Pausescreen extends GameScreen {
     public void render(final Graphics2D g) {
         super.render(g);
 
+        g.setFont(new Font("Arial",0,40));
+
         g.setColor(Color.red);
-        Game.graphics().renderText(g, "Pause", 275,50);
+        TextRenderer.render(g, "Pause", 800,150);
 
 
         g.setColor(Color.yellow);
-        Game.graphics().renderText(g, "Resume", 275,120);
+        TextRenderer.render(g, "Resume", 810,230);
 
         g.setColor(Color.yellow);
-        Game.graphics().renderText(g, "Settings", 275,170);
+        TextRenderer.render(g, "Settings", 820,300);
 
         g.setColor(Color.yellow);
-        Game.graphics().renderText(g, "Return to Home", 275,220);
+        TextRenderer.render(g, "Back to Title", 830,370);
 
         g.setColor(Color.yellow);
-        Game.graphics().renderText(g, "Quit Game",275,270);
+        TextRenderer.render(g, "Quit Game",840,440);
 
     }
 }
