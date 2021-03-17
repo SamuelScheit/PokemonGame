@@ -13,6 +13,7 @@ public class Main {
         Game.screens().add(new InGameScreen(status));
         Game.world().loadEnvironment("map1");
         GameLogic.init();
+        Game.screens().display("ingame");
 
         Game.start();
     }
