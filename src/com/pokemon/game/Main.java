@@ -10,10 +10,13 @@ public class Main {
         Resources.load("assets/game.litidata");
         GameStatus status = new GameStatus(true);
         Game.addGameListener(new Listener());
+        Game.screens().add(new Pausescreen());
+        Game.screens().add(new Startscreen());
         Game.screens().add(new InGameScreen(status));
         Game.world().loadEnvironment("map1");
         GameLogic.init();
         PlayerInput.init(status);
+        Game.screens().display("SC");
 
         Game.start();
     }

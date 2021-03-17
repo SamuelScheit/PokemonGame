@@ -32,14 +32,6 @@
    <objectgroup id="34" name="interactable" visible="1">
     <object id="1" name="door" x="356.217" y="238.843" width="16.8327" height="16.3778"/>
     <object id="5" gid="5209" x="319.616" y="317.434" width="32" height="43"/>
-    <object id="6" name="enter" type="SPAWNPOINT" x="288" y="288" width="32" height="32"/>
-    <object id="7" name="player" type="CREATURE" x="288" y="288" width="32" height="32">
-     <properties>
-      <property name="collision" type="bool" value="true"/>
-      <property name="scaling" type="bool" value="false"/>
-      <property name="spritesheetName" value="gurknukem"/>
-     </properties>
-    </object>
     <object id="8" name="border4" type="COLLISIONBOX" x="0" y="0" width="32" height="640">
      <properties>
       <property name="collisionType" value="STATIC"/>
@@ -60,11 +52,12 @@
       <property name="collisionType" value="STATIC"/>
      </properties>
     </object>
+    <object id="12" name="enter" type="SPAWNPOINT" x="288" y="288" width="32" height="32"/>
    </objectgroup>
   </map>
  </maps>
  <spriteSheets>
-  <sprite width="32" height="43" imageformat="PNG" name="character">
+  <sprite width="32" height="43" imageformat="PNG" name="character-idle">
    <image>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</image>
   </sprite>
   <sprite width="90" height="90" imageformat="PNG" name="gurknukem-walk-left">

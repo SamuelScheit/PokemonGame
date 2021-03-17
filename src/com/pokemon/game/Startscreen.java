@@ -17,19 +17,21 @@ public class Startscreen extends GameScreen {
     public void render(final Graphics2D g) {
         super.render(g);
 
+        g.setFont(new Font("Arial",0,50));
+
         g.setColor(Color.RED);
-        Game.graphics().renderText(g, "Pokemon", 300,100);
+        TextRenderer.render(g, "Pokemon", 300,100);
 
         g.setColor(Color.BLUE);
-        Game.graphics().renderText(g, "New Game", 500,150);
+        TextRenderer.render(g, "New Game", 500,150);
 
         g.setColor(Color.BLUE);
-        Game.graphics().renderText(g, "Load Game", 510,200);
+        TextRenderer.render(g, "Load Game", 510,200);
 
         g.setColor(Color.BLUE);
-        Game.graphics().renderText(g, "Settings", 520,250);
+        TextRenderer.render(g, "Settings", 520,250);
 
         g.setColor(Color.BLUE);
-        Game.graphics().renderText(g, "Quit Game", 530,300);
+        TextRenderer.render(g, "Quit Game", 530,300);
     }
 }

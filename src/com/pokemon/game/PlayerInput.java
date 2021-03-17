@@ -8,9 +8,7 @@ import java.awt.event.KeyEvent;
 public class PlayerInput {
     public static void init(GameStatus status) {
         // make the game exit upon pressing ESCAPE (by default there is no such key binding and the window needs to be shutdown otherwise, e.g. ALT-F4 on Windows)
-        Input.keyboard().onKeyPressed(KeyEvent.VK_ESCAPE, e -> Game.screens().display("PAUSE"));
-        Input.keyboard().onKeyTyped(KeyEvent.VK_I, e -> {
-            status.triggerIntro();
-        });
+        Input.keyboard().onKeyTyped(KeyEvent.VK_ESCAPE, e -> Game.screens().display("PAUSE"));
+        Input.keyboard().onKeyTyped(KeyEvent.VK_I, e -> status.triggerIntro());
     }
 }
