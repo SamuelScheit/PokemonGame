@@ -26,12 +26,12 @@ public class Startscreen extends GameScreen {
         TextRenderer.render(g, "New Game", 500,150);
 
         g.setColor(Color.BLUE);
-        TextRenderer.render(g, "Load Game", 510,200);
+        TextRenderer.render(g, "Load Game", 500,200);
 
         g.setColor(Color.BLUE);
-        TextRenderer.render(g, "Settings", 520,250);
+        TextRenderer.render(g, "Settings", 500,250);
 
         g.setColor(Color.BLUE);
-        TextRenderer.render(g, "Quit Game", 530,300);
+        TextRenderer.render(g, "Quit Game", 500,300);
     }
 }
