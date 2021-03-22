@@ -8,7 +8,7 @@ public class Main {
         Game.setInfo("assets/gameinfo.xml");
         Game.init(args);
         Resources.load("assets/game.litidata");
-        GameStatus status = new GameStatus(true);
+        GameStatus status = new GameStatus();
         Game.addGameListener(new Listener());
         Game.screens().add(new Pausescreen());
         Game.screens().add(new Startscreen());

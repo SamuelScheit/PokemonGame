@@ -13,6 +13,7 @@ import java.awt.geom.Rectangle2D;
 public class InGameScreen extends GameScreen {
 
     private GameStatus gameStatus;
+
     public InGameScreen(GameStatus status) {
         super("ingame");
         gameStatus = status;
@@ -22,18 +23,18 @@ public class InGameScreen extends GameScreen {
     public void render(final Graphics2D g) {
         super.render(g);
 
-        g.setFont(new Font("Arial",Font.PLAIN,50));
+        g.setFont(new Font("Arial", Font.PLAIN, 50));
 
         g.setColor(Color.RED);
 
-        if (gameStatus.isStartup()) {
-            String nextDialog = gameStatus.getNextDialog();
-            if(nextDialog != null) {
-                Rectangle2D rectangle = new Rectangle();
-                rectangle.setRect(300, 140, 150, 50);
-                Game.graphics().renderOutline(g, rectangle);
-                TextRenderer.render(g, nextDialog, 100, 700);
-            }
+
+        String nextDialog = gameStatus.getNextDialog();
+        if (nextDialog != null) {
+            Rectangle2D rectangle = new Rectangle();
+            rectangle.setRect(300, 140, 150, 50);
+            Game.graphics().renderOutline(g, rectangle);
+            TextRenderer.render(g, nextDialog, 100, 700);
         }
+
     }
 }

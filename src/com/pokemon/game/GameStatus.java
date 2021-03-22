@@ -4,10 +4,13 @@ public class GameStatus {
     private String nextDialog;
     private boolean startup;
     private GameDialogs dialogs;
+    private boolean firstDialog;
 
-    public GameStatus(boolean startup) {
-        this.startup = startup;
+    public GameStatus() {
+        this.startup = true;
         this.dialogs = new GameDialogs();
+        this.firstDialog = false;
+
     }
 
     public boolean isStartup() {
@@ -18,15 +21,31 @@ public class GameStatus {
         this.startup = startup;
     }
 
+    public boolean isFirstDialog(){
+        return firstDialog;
+    }
+
+    public void setFirstDialog(boolean firstDialog){
+        this.firstDialog = firstDialog;
+    }
+
     public String getNextDialog() {
         return nextDialog;
     }
 
-    public void triggerIntro() {
-        if (isStartup()) {
+    public void triggerDialog(){
+        if(isStartup()){
             nextDialog = this.dialogs.getNextIntroText();
-        } else {
-            nextDialog = "fehler";
+            if(nextDialog == null){
+                setStartup(false);
+                setFirstDialog(true);
+            }
+        }
+        if(isFirstDialog()){
+            nextDialog = this.dialogs.getNextDialog1();
+            if(nextDialog == null){
+               setFirstDialog(false);
+            }
         }
     }
 }

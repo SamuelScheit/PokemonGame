@@ -14,6 +14,9 @@ public class PlayerInput {
             pausescreen.toggle();
         });
         Input.keyboard().onKeyTyped(KeyEvent.VK_G, e -> Game.screens().display("ingame"));
-        Input.keyboard().onKeyTyped(KeyEvent.VK_I, e -> status.triggerIntro());
+
+
+        Input.keyboard().onKeyTyped(KeyEvent.VK_I, e -> status.triggerDialog());
+
     }
 }
