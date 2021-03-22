@@ -30,16 +30,16 @@ public class Pausescreen extends GameScreen {
 
 
         g.setColor(Color.yellow);
-        TextRenderer.render(g, "Resume", 810,230);
+        TextRenderer.render(g, "Resume", 800,230);
 
         g.setColor(Color.yellow);
-        TextRenderer.render(g, "Settings", 820,300);
+        TextRenderer.render(g, "Settings", 800,300);
 
         g.setColor(Color.yellow);
-        TextRenderer.render(g, "Back to Title", 830,370);
+        TextRenderer.render(g, "Back to Title", 800,370);
 
         g.setColor(Color.yellow);
-        TextRenderer.render(g, "Quit Game",840,440);
+        TextRenderer.render(g, "Quit Game",800,440);
 
     }
 }
