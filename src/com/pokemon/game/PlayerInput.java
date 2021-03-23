@@ -11,7 +11,7 @@ public class PlayerInput {
 
         Input.keyboard().onKeyTyped(KeyEvent.VK_ESCAPE, e -> {
             Pausescreen pausescreen = (Pausescreen) Game.screens().get("PAUSE");
-            pausescreen.toggle();
+            //pausescreen.toggle();
         });
         Input.keyboard().onKeyTyped(KeyEvent.VK_G, e -> Game.screens().display("ingame"));
 

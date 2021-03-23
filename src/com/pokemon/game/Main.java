@@ -16,7 +16,7 @@ public class Main {
         Game.world().loadEnvironment("map1");
         GameLogic.init();
         PlayerInput.init(status);
-        Game.screens().display("SC");
+        Game.screens().display("Pausescreen");
 
         Game.start();
     }

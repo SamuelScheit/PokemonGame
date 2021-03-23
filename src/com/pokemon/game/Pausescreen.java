@@ -3,6 +3,7 @@ package com.pokemon.game;
 import de.gurkenlabs.litiengine.Game;
 import de.gurkenlabs.litiengine.gui.screens.GameScreen;
 
+import javax.swing.*;
 import java.awt.*;
 
 public class Pausescreen extends GameScreen {
@@ -10,28 +11,33 @@ public class Pausescreen extends GameScreen {
         super("PAUSE");
     }
 
-    @Override
-    public void render(final Graphics2D g) {
-        super.render(g);
+    private JPanel mainpanel;
 
-        g.setColor(Color.red);
-        Game.graphics().renderText(g, "Pause", 275,50);
+        /*public Pausescreen(String title)
 
+        {
+            super(title);
 
-        g.setColor(Color.yellow);
-        Game.graphics().renderText(g, "Resume", 275,120);
-
-        g.setColor(Color.yellow);
-        Game.graphics().renderText(g, "Settings", 275,170);
-
-        g.setColor(Color.yellow);
-        Game.graphics().renderText(g, "Return to Home", 275,220);
-
-        g.setColor(Color.yellow);
-        Game.graphics().renderText(g, "Quit Game",275,270);
-
-
-
-
+            this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+            this.setContentPane(mainpanel);
+            this.pack();
+        }
+*/
+        public static void main(String[] args) {
+            GameScreen frame = new Pausescreen("Pausescreen");
+            frame.setVisible(true);
+        }
     }
-}
+
+    public static class GUI {
+        private JPanel panel1;
+        private JButton quitGameButton;
+        private JButton returnToHomeButton;
+        private JButton settingsButton;
+        private JButton resumeButton;
+        private JTextField PAUSETextField;
+
+        private void createUIComponents() {
+            // TODO: place custom component creation code here
+        }
+    }
