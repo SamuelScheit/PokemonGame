@@ -11,12 +11,8 @@ import java.awt.*;
 import java.awt.geom.Rectangle2D;
 
 public class InGameScreen extends GameScreen {
-
-    private GameStatus gameStatus;
-
-    public InGameScreen(GameStatus status) {
+    public InGameScreen() {
         super("ingame");
-        gameStatus = status;
     }
 
     @Override
@@ -27,13 +23,23 @@ public class InGameScreen extends GameScreen {
 
         g.setColor(Color.RED);
 
-        String nextDialog = gameStatus.getNextDialog();
+        String nextDialog = GameStatus.instance().getNextDialog();
         if (nextDialog != null) {
             Rectangle2D rectangle = new Rectangle();
             rectangle.setRect(300, 140, 150, 50);
             Game.graphics().renderOutline(g, rectangle);
             TextRenderer.render(g, nextDialog, 100, 700);
         }
+    }
 
+    @Override
+    public void prepare() {
+        super.prepare();
+        GameStatus.instance().setIngame(true);
+    }
+
+    @Override
+    protected void initializeComponents() {
+        Game.world().loadEnvironment("map1");
     }
 }

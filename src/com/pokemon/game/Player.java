@@ -30,6 +30,7 @@ public class Player extends Creature implements IUpdateable {
         movementController.addDownKey(KeyEvent.VK_DOWN);
         movementController.addLeftKey(KeyEvent.VK_LEFT);
         movementController.addRightKey(KeyEvent.VK_RIGHT);
+        movementController.onMovementCheck(e -> GameStatus.instance().isIngame());
 
         this.setController(IMovementController.class, movementController);
     }

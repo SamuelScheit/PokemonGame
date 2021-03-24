@@ -5,12 +5,30 @@ public class GameStatus {
     private boolean startup;
     private GameDialogs dialogs;
     private boolean firstDialog;
+    private boolean ingame;
+    private static GameStatus instance;
 
     public GameStatus() {
         this.startup = true;
         this.dialogs = new GameDialogs();
         this.firstDialog = false;
+        this.ingame = false;
+    }
 
+    public static GameStatus instance() {
+        if (instance == null) {
+            instance = new GameStatus();
+        }
+
+        return instance;
+    }
+
+    public boolean isIngame() {
+        return ingame;
+    }
+
+    public void setIngame(boolean value) {
+        ingame = value;
     }
 
     public boolean isStartup() {

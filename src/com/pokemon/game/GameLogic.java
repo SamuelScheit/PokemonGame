@@ -5,6 +5,8 @@ import de.gurkenlabs.litiengine.entities.Spawnpoint;
 import de.gurkenlabs.litiengine.graphics.Camera;
 import de.gurkenlabs.litiengine.graphics.PositionLockCamera;
 
+import javax.swing.*;
+
 public class GameLogic {
     public static void init() {
         // we'll use a camera in our game that is locked to the location of the player
@@ -13,6 +15,8 @@ public class GameLogic {
         Game.world().setCamera(camera);
         Game.screens().setChangeCooldown(0);
         Game.graphics().setBaseRenderScale(4.001f);
+        ((JFrame) Game.window().getHostControl()).setResizable(false);
+
         // Game.world().setGravity(120);
 
         // add default game logic for when a level was loaded
