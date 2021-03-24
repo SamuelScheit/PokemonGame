@@ -11,24 +11,6 @@ public class Pausescreen extends GameScreen {
         super("PAUSE");
     }
 
-    private JPanel mainpanel;
-
-        /*public Pausescreen(String title)
-
-        {
-            super(title);
-
-            this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-            this.setContentPane(mainpanel);
-            this.pack();
-        }
-*/
-        public static void main(String[] args) {
-            GameScreen frame = new Pausescreen("Pausescreen");
-            frame.setVisible(true);
-        }
-    }
-
     public static class GUI {
         private JPanel panel1;
         private JButton quitGameButton;
