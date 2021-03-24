@@ -104,7 +104,7 @@ public class Pausescreen extends GameScreen {
             return settingsButton;
         }
 
-        public JTextField getpauseimage() {
+        public JButton getpauseimage() {
             return pauseimage;
         }
 

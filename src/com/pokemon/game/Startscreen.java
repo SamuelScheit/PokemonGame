@@ -10,6 +10,8 @@ import javax.swing.*;
 import java.awt.*;
 
 public class Startscreen extends GameScreen {
+    private JButton Start;
+
     public Startscreen() {
         super("SC");
     }
