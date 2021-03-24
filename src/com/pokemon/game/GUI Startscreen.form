@@ -57,7 +57,7 @@
               <contentAreaFilled value="false"/>
               <hideActionText value="false"/>
               <horizontalTextPosition value="0"/>
-              <icon value="uNAUSGEWÄHLT.png"/>
+              <icon value="Unausgewählt.png"/>
               <pressedIcon value="ausgewählt.png"/>
               <selected value="false"/>
               <text value="Quit Game"/>
@@ -73,7 +73,7 @@
               <contentAreaFilled value="false"/>
               <hideActionText value="false"/>
               <horizontalTextPosition value="0"/>
-              <icon value="uNAUSGEWÄHLT.png"/>
+              <icon value="Unausgewählt.png"/>
               <pressedIcon value="ausgewählt.png"/>
               <selected value="false"/>
               <text value="Settings"/>
@@ -90,7 +90,7 @@
               <contentAreaFilled value="false"/>
               <hideActionText value="false"/>
               <horizontalTextPosition value="0"/>
-              <icon value="uNAUSGEWÄHLT.png"/>
+              <icon value="Unausgewählt.png"/>
               <pressedIcon value="ausgewählt.png"/>
               <selected value="false"/>
               <text value="Load Game"/>
@@ -107,7 +107,7 @@
               <enabled value="true"/>
               <hideActionText value="false"/>
               <horizontalTextPosition value="0"/>
-              <icon value="uNAUSGEWÄHLT.png"/>
+              <icon value="Unausgewählt.png"/>
               <pressedIcon value="ausgewählt.png"/>
               <requestFocusEnabled value="false"/>
               <selected value="false"/>
