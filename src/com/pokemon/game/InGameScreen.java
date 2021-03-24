@@ -27,7 +27,6 @@ public class InGameScreen extends GameScreen {
 
         g.setColor(Color.RED);
 
-
         String nextDialog = gameStatus.getNextDialog();
         if (nextDialog != null) {
             Rectangle2D rectangle = new Rectangle();
