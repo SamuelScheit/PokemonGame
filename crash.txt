@@ -1,5 +1,9 @@
-Mon Mar 22 20:40:47 CET 2021 Main Update Loop threw an exception:
-java.lang.NullPointerException: Cannot invoke "de.gurkenlabs.litiengine.gui.screens.ScreenManager.current()" because the return value of "de.gurkenlabs.litiengine.Game.screens()" is null
-	at de.gurkenlabs.litiengine.graphics.RenderComponent.render(RenderComponent.java:120)
+Wed Mar 24 09:03:07 CET 2021 Main Update Loop threw an exception:
+java.lang.NullPointerException
+	at de.gurkenlabs.litiengine.environment.Environment.render(Environment.java:2459)
+	at de.gurkenlabs.litiengine.environment.Environment.render(Environment.java:2298)
+	at de.gurkenlabs.litiengine.gui.screens.GameScreen.render(GameScreen.java:25)
+	at com.pokemon.game.Pausescreen.render(Pausescreen.java:29)
+	at de.gurkenlabs.litiengine.graphics.RenderComponent.render(RenderComponent.java:123)
 	at de.gurkenlabs.litiengine.GameLoop.process(GameLoop.java:92)
 	at de.gurkenlabs.litiengine.UpdateLoop.run(UpdateLoop.java:57)

@@ -11,6 +11,7 @@ public class GameLogic {
         Camera camera = new PositionLockCamera(Player.instance());
         camera.setClampToMap(true);
         Game.world().setCamera(camera);
+        Game.screens().setChangeCooldown(0);
         Game.graphics().setBaseRenderScale(4.001f);
         // Game.world().setGravity(120);
 
@@ -22,6 +23,7 @@ public class GameLogic {
                 enter.spawn(Player.instance());
             }
         });
+
 
         Game.world().loadEnvironment("map1");
     }
