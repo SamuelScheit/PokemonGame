@@ -23,3 +23,4 @@ public class Pausescreen extends GameScreen {
             // TODO: place custom component creation code here
         }
     }
+}

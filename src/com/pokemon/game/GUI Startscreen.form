@@ -57,8 +57,8 @@
               <contentAreaFilled value="false"/>
               <hideActionText value="false"/>
               <horizontalTextPosition value="0"/>
-              <icon value="com/pokemon/game/uNAUSGEWÄHLT.png"/>
-              <pressedIcon value="com/pokemon/game/ausgewählt.png"/>
+              <icon value="uNAUSGEWÄHLT.png"/>
+              <pressedIcon value="ausgewählt.png"/>
               <selected value="false"/>
               <text value="Quit Game"/>
               <toolTipText value=" &lt;div class=&quot;tooltip&quot;&gt;Hover over me   &lt;span class=&quot;tooltiptext&quot;&gt;Tooltip text&lt;/span&gt; &lt;/div&gt; "/>
@@ -73,10 +73,10 @@
               <contentAreaFilled value="false"/>
               <hideActionText value="false"/>
               <horizontalTextPosition value="0"/>
-              <icon value="com/pokemon/game/uNAUSGEWÄHLT.png"/>
-              <pressedIcon value="com/pokemon/game/ausgewählt.png"/>
+              <icon value="uNAUSGEWÄHLT.png"/>
+              <pressedIcon value="ausgewählt.png"/>
               <selected value="false"/>
-              <text value="Return to Home"/>
+              <text value="Settings"/>
               <toolTipText value=" &lt;div class=&quot;tooltip&quot;&gt;Hover over me   &lt;span class=&quot;tooltiptext&quot;&gt;Tooltip text&lt;/span&gt; &lt;/div&gt; "/>
               <verifyInputWhenFocusTarget value="true"/>
             </properties>
@@ -90,10 +90,10 @@
               <contentAreaFilled value="false"/>
               <hideActionText value="false"/>
               <horizontalTextPosition value="0"/>
-              <icon value="com/pokemon/game/uNAUSGEWÄHLT.png"/>
-              <pressedIcon value="com/pokemon/game/ausgewählt.png"/>
+              <icon value="uNAUSGEWÄHLT.png"/>
+              <pressedIcon value="ausgewählt.png"/>
               <selected value="false"/>
-              <text value="Settings"/>
+              <text value="Load Game"/>
               <toolTipText value=" &lt;div class=&quot;tooltip&quot;&gt;Hover over me   &lt;span class=&quot;tooltiptext&quot;&gt;Tooltip text&lt;/span&gt; &lt;/div&gt; "/>
             </properties>
           </component>
@@ -107,11 +107,11 @@
               <enabled value="true"/>
               <hideActionText value="false"/>
               <horizontalTextPosition value="0"/>
-              <icon value="com/pokemon/game/uNAUSGEWÄHLT.png"/>
-              <pressedIcon value="com/pokemon/game/ausgewählt.png"/>
+              <icon value="uNAUSGEWÄHLT.png"/>
+              <pressedIcon value="ausgewählt.png"/>
               <requestFocusEnabled value="false"/>
               <selected value="false"/>
-              <text value="Resume"/>
+              <text value="New Game"/>
               <toolTipText value=" &lt;div class=&quot;tooltip&quot;&gt;Hover over me   &lt;span class=&quot;tooltiptext&quot;&gt;Tooltip text&lt;/span&gt; &lt;/div&gt; "/>
             </properties>
           </component>
