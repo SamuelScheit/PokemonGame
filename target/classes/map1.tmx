@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.4" tiledversion="1.4.3" orientation="orthogonal" renderorder="right-down" width="20" height="20" tilewidth="32" tileheight="32" infinite="0" nextlayerid="35" nextobjectid="6">
+ <tileset firstgid="1" source="tiles/original_pokemon.tsx"/>
+ <tileset firstgid="5209" source="tiles/character.tsx"/>
+ <layer id="1" name="grass" width="20" height="20">
+  <data encoding="base64" compression="zlib">
+   eJwzYWJgMBnFIx6b4mAPFvNG8SgexYMPAwB3gFRl
+  </data>
+ </layer>
+ <layer id="5" name="path" width="20" height="20">
+  <data encoding="base64" compression="zlib">
+   eJxjYBgFo2Dwgo+MDAyf8ODPjKSZ9xOo/hce/JtE8xiZGBiYcGByzMMHhot5+OITGRNrHr74JCd+ccUnNszMRNi84QwAtWYwwQ==
+  </data>
+ </layer>
+ <layer id="16" name="houses" width="20" height="20">
+  <data encoding="base64" compression="zlib">
+   eJztzLERgCAQAMGvgN4VE5UENBFMFArkeuATx7+ZTU/E+mKTE5nhsbjx38pjw46g8Is8Eg6cCr+LR0bBrfB7eLyoaAo/y/pjHS4zDcs=
+  </data>
+ </layer>
+ <layer id="32" name="bushes2" width="20" height="20">
+  <data encoding="base64" compression="zlib">
+   eJx7zMJANfCQimaNglEwCkbBKKAu+EzFMvox0CwATqUDqw==
+  </data>
+ </layer>
+ <layer id="31" name="bushes1" width="20" height="20">
+  <data encoding="base64" compression="zlib">
+   eJz7yMLA8IlK+DMQvwZiaoGXo+aNmjdq3qh5o+ZRzbyHQPyISvgjEAMAJ4dGtw==
+  </data>
+ </layer>
+ <objectgroup id="34" name="interactable">
+  <object id="1" name="door" x="356.217" y="238.843" width="16.8327" height="16.3778"/>
+  <object id="5" gid="5209" x="319.616" y="317.434" width="32" height="43"/>
+ </objectgroup>
+</map>
