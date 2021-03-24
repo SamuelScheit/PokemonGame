@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<form xmlns="http://www.intellij.com/uidesigner/form/" version="1" bind-to-class="com.pokemon.game.Pausescreen">
+<form xmlns="http://www.intellij.com/uidesigner/form/" version="1" bind-to-class="com.pokemon.game.GUI">
   <grid id="27dc6" binding="panel1" default-binding="true" layout-manager="GridLayoutManager" row-count="1" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
     <margin top="0" left="0" bottom="0" right="0"/>
     <constraints>
@@ -97,7 +97,7 @@
               <toolTipText value=" &lt;div class=&quot;tooltip&quot;&gt;Hover over me   &lt;span class=&quot;tooltiptext&quot;&gt;Tooltip text&lt;/span&gt; &lt;/div&gt; "/>
             </properties>
           </component>
-          <component id="f79fd" class="javax.swing.JButton" default-binding="true">
+          <component id="f79fd" class="javax.swing.JButton" binding="resumeButton">
             <constraints>
               <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
             </constraints>
