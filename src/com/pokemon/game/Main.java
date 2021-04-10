@@ -7,6 +7,7 @@ import javax.swing.*;
 
 public class Main {
     public static void main(String[] args) {
+        DbConnection.connect();
         Game.setInfo("assets/gameinfo.xml");
         Game.init(args);
         Resources.load("assets/game.litidata");
