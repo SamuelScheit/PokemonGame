@@ -19,7 +19,7 @@ import de.gurkenlabs.litiengine.sound.Sound;
 public class KeyboardMenu extends Menu {
     public static final Color BUTTON_RED = new Color(140, 16, 16, 200);
     public static final Color BUTTON_BLACK = new Color(0, 0, 0, 200);
-    public static final Sound SETTING_CHANGE_SOUND = Resources.sounds().get("swing1.ogg");
+
     public static final int MENU_DELAY = 180;
 
     private final List<Consumer<Integer>> confirmConsumer;
@@ -133,8 +133,6 @@ public class KeyboardMenu extends Menu {
 
         lastMenuInput = Game.time().now();
 
-        if (this.isVisible()) {
-            Game.audio().playSound(SETTING_CHANGE_SOUND);
+
         }
     }
-}
