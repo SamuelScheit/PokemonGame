@@ -79,7 +79,6 @@ public class KeyboardMenu extends Menu {
             comp.getAppearance().setBorderRadius(10);
             comp.getAppearanceHovered().setForeColor(Color.WHITE);
             comp.setImageScaleMode(ImageScaleMode.STRETCH);
-            comp.setImage(Resources.images().get("assets/uNAUSGEWÄHLT.png"));
             this.hoverMenuEntry(i, false);
         }
 
@@ -95,9 +94,9 @@ public class KeyboardMenu extends Menu {
         comp.setHovered(hovered);
 
         if (hovered) {
-            comp.setImage(Resources.images().get("assets/ausgewählt.png"));
+            comp.setImage(Resources.images().get("assets/button/selected.png"));
         } else {
-            comp.setImage(Resources.images().get("assets/uNAUSGEWÄHLT.png"));
+            comp.setImage(Resources.images().get("assets/button/unselected.png"));
         }
     }
 

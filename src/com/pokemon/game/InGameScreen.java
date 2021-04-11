@@ -11,8 +11,10 @@ import java.awt.*;
 import java.awt.geom.Rectangle2D;
 
 public class InGameScreen extends GameScreen {
+    public static String NAME = "ingame";
+
     public InGameScreen() {
-        super("ingame");
+        super(InGameScreen.NAME);
     }
 
     @Override
