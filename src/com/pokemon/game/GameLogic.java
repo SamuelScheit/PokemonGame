@@ -2,6 +2,7 @@ package com.pokemon.game;
 
 import de.gurkenlabs.litiengine.Game;
 import de.gurkenlabs.litiengine.entities.Spawnpoint;
+import de.gurkenlabs.litiengine.entities.Trigger;
 import de.gurkenlabs.litiengine.graphics.Camera;
 import de.gurkenlabs.litiengine.graphics.PositionLockCamera;
 
@@ -30,5 +31,10 @@ public class GameLogic {
 
 
         Game.world().loadEnvironment("map1");
+        Trigger trigger1 = Game.world().environment().getTrigger("TRIGGER_BOX_1");
+        trigger1.addTriggerListener(new PokemonTriggerListener(TriggerBoxEnum.TRIGGER_BOX_1));
+        Trigger trigger2 = Game.world().environment().getTrigger("TRIGGER_BOX_2");
+        trigger2.addTriggerListener(new PokemonTriggerListener(TriggerBoxEnum.TRIGGER_BOX_2));
+
     }
 }

@@ -1,6 +1,10 @@
 package com.pokemon.game;
 
 public class GameStatus {
+    private TriggerBoxEnum triggerBox;
+
+
+
     private String nextDialog;
     private boolean startup;
     private GameDialogs dialogs;
@@ -52,18 +56,25 @@ public class GameStatus {
     }
 
     public void triggerDialog(){
-        if(isStartup()){
+        if(isStartup() && getTriggerBox() == TriggerBoxEnum.NONE){
             nextDialog = this.dialogs.getNextIntroText();
             if(nextDialog == null){
                 setStartup(false);
                 setFirstDialog(true);
             }
         }
-        if(isFirstDialog()){
+        if(isFirstDialog() && getTriggerBox() == TriggerBoxEnum.TRIGGER_BOX_1){
             nextDialog = this.dialogs.getNextDialog1();
             if(nextDialog == null){
                setFirstDialog(false);
             }
         }
+    }
+    public TriggerBoxEnum getTriggerBox() {
+        return triggerBox;
+    }
+
+    public void setTriggerBox(TriggerBoxEnum triggerBox) {
+        this.triggerBox = triggerBox;
     }
 }
