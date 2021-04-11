@@ -1,10 +1,15 @@
 package com.pokemon.game;
 
+import de.gurkenlabs.litiengine.Align;
 import de.gurkenlabs.litiengine.Game;
+import de.gurkenlabs.litiengine.Valign;
+import de.gurkenlabs.litiengine.gui.ImageComponent;
+import de.gurkenlabs.litiengine.gui.ImageScaleMode;
 import de.gurkenlabs.litiengine.gui.Menu;
 import de.gurkenlabs.litiengine.gui.screens.GameScreen;
 import de.gurkenlabs.litiengine.gui.screens.Screen;
 import de.gurkenlabs.litiengine.input.Input;
+import de.gurkenlabs.litiengine.resources.Resources;
 
 import java.awt.*;
 import java.awt.event.KeyEvent;
@@ -31,10 +36,15 @@ public class Pausescreen extends GameScreen {
             Game.screens().display(lastScreen);
             return;
         }
-        GameStatus.instance().setIngame(false);
         lastScreen = Game.screens().current();
         Game.screens().display(this);
         System.out.println("pause menu active");
+    }
+
+    @Override
+    public void prepare() {
+        super.prepare();
+        GameStatus.instance().setIngame(false);
     }
 
     @Override
@@ -43,27 +53,43 @@ public class Pausescreen extends GameScreen {
         // Don't forget to call this.getComponents().add(GuiComponent c) so that the components will actually be rendered.
         super.initializeComponents();
 
-        final double centerX = Game.window().getResolution().getWidth() / 2.0;
-        final double centerY = Game.window().getResolution().getHeight() * 1 / 2;
+        final double centerX = Game.window().getResolution().getWidth() / 2;
+        final double centerY = Game.window().getResolution().getHeight() / 2;
         final double buttonWidth = 450;
+
+        Color backdropColor = new Color(0,0,0,100);
+        ImageComponent backdrop = new ImageComponent(0,0, Game.window().getWidth(),Game.window().getHeight());
+        backdrop.getAppearance().setTransparentBackground(false);
+        backdrop.getAppearance().setBackgroundColor1(backdropColor);
+        backdrop.getAppearanceHovered().setTransparentBackground(false);
+        backdrop.getAppearanceHovered().setBackgroundColor1(backdropColor);
+
         menuEntries = new String[]{"Resume","Settings","Return to home", "Quit Game"};
 
-        menu = new KeyboardMenu(centerX - buttonWidth / 2, centerY * 1.3, buttonWidth, centerY / 2, menuEntries);
+        Image headlineImage = Resources.images().get("assets/headlines/pause.png");
+        ImageComponent headline = new ImageComponent(0,0, headlineImage);
+
+        headline.setX(centerX - headline.getWidth() / 2);
+        headline.setY(centerY - headline.getHeight() - 50);
+//        headline.setImageAlign(Align.CENTER);
+//        headline.setImageValign(Valign.MIDDLE);
+
+        menu = new KeyboardMenu(centerX - buttonWidth / 2, centerY * 1, buttonWidth, centerY / 2, menuEntries);
 
         menu.onConfirm(index -> {
             System.out.println(index + " "+menuEntries[index]);
             switch (index) {
-                case 0:
+                case 0: // resume
                     this.toggle();
                     return;
-                case 1:
+                case 1: // settings
 //                    TODO: settings screen
 //                    Game.screens().display("settings");
                     return;
-                case 2:
+                case 2: // return to home
 //                    TODO: home screen
                     return;
-                case 3:
+                case 3: // quite game
 //                    TODO: save game
                     Game.exit();
                     return;
@@ -75,10 +101,9 @@ public class Pausescreen extends GameScreen {
             this.toggle();
         });
 
+        this.getComponents().add(backdrop);
         this.getComponents().add(menu);
+        this.getComponents().add(headline);
     }
 
-    private void createUIComponents() {
-        // TODO: place custom component creation code here
-    }
 }
