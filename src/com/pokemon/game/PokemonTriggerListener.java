@@ -1,5 +1,6 @@
 package com.pokemon.game;
 
+import de.gurkenlabs.litiengine.Game;
 import de.gurkenlabs.litiengine.entities.TriggerEvent;
 import de.gurkenlabs.litiengine.entities.TriggerListener;
 
@@ -14,6 +15,9 @@ public class PokemonTriggerListener implements TriggerListener {
     public void activated(TriggerEvent event) {
         GameStatus.instance().setTriggerBox(trigger);
         System.out.println("activated "+ trigger);
+        if(trigger == TriggerBoxEnum.TRIGGER_BOX_1){
+            Game.world().loadEnvironment("map2");
+        }
     }
 
     @Override

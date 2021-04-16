@@ -33,8 +33,9 @@ public class GameLogic {
         Game.world().loadEnvironment("map1");
         Trigger trigger1 = Game.world().environment().getTrigger("TRIGGER_BOX_1");
         trigger1.addTriggerListener(new PokemonTriggerListener(TriggerBoxEnum.TRIGGER_BOX_1));
-        Trigger trigger2 = Game.world().environment().getTrigger("TRIGGER_BOX_2");
+        /* Trigger trigger2 = Game.world().environment().getTrigger("TRIGGER_BOX_2");
         trigger2.addTriggerListener(new PokemonTriggerListener(TriggerBoxEnum.TRIGGER_BOX_2));
-
+        Trigger trigger3 = Game.world().environment().getTrigger("TRIGGER_BOX_3");
+        trigger3.addTriggerListener(new PokemonTriggerListener(TriggerBoxEnum.TRIGGER_BOX_3));*/
     }
 }
