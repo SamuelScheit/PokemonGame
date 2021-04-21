@@ -22,13 +22,14 @@ public class GameLogic {
 
         // add default game logic for when a level was loaded
         Game.world().onLoaded(e -> {
+            Game.world().camera().updateFocus();
+            System.out.println("world loaded");
             // spawn the player instance on the spawn point with the name "enter"
             Spawnpoint enter = e.getSpawnpoint("enter");
             if (enter != null) {
                 enter.spawn(Player.instance());
             }
         });
-
 
         Game.world().loadEnvironment("map1");
         Trigger trigger1 = Game.world().environment().getTrigger("TRIGGER_BOX_1");

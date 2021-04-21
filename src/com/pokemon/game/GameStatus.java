@@ -2,9 +2,6 @@ package com.pokemon.game;
 
 public class GameStatus {
     private TriggerBoxEnum triggerBox;
-
-
-
     private String nextDialog;
     private boolean startup;
     private GameDialogs dialogs;
