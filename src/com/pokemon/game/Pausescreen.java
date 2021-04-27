@@ -71,8 +71,6 @@ public class Pausescreen extends GameScreen {
 
         headline.setX(centerX - headline.getWidth() / 2);
         headline.setY(centerY - headline.getHeight() - 50);
-//        headline.setImageAlign(Align.CENTER);
-//        headline.setImageValign(Valign.MIDDLE);
 
         menu = new KeyboardMenu(centerX - buttonWidth / 2, centerY * 1, buttonWidth, centerY / 2, menuEntries);
 

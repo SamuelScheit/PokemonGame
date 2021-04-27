@@ -20,7 +20,7 @@ public class KeyboardMenu extends Menu {
     public static final Color BUTTON_RED = new Color(140, 16, 16, 200);
     public static final Color BUTTON_BLACK = new Color(0, 0, 0, 200);
 
-    public static final int MENU_DELAY = 180;
+    public static final int MENU_DELAY = 0;
 
     private final List<Consumer<Integer>> confirmConsumer;
     protected int currentFocus = -1;
@@ -31,7 +31,7 @@ public class KeyboardMenu extends Menu {
         super(x, y, width, height, items);
         this.confirmConsumer = new CopyOnWriteArrayList<>();
 
-        Input.keyboard().onKeyReleased(e -> {
+        Input.keyboard().onKeyTyped(e -> {
             if (e.getKeyCode() == KeyEvent.VK_ENTER || e.getKeyCode() == KeyEvent.VK_SPACE) {
                 if (this.menuInputIsLocked()) return;
 
@@ -40,13 +40,13 @@ public class KeyboardMenu extends Menu {
             }
         });
 
-        Input.keyboard().onKeyPressed(KeyEvent.VK_UP, e -> {
+        Input.keyboard().onKeyTyped(KeyEvent.VK_UP, e -> {
             if (this.menuInputIsLocked()) return;
 
             decFocus();
         });
 
-        Input.keyboard().onKeyPressed(KeyEvent.VK_DOWN, e -> {
+        Input.keyboard().onKeyTyped(KeyEvent.VK_DOWN, e -> {
             if (this.menuInputIsLocked()) return;
 
             incFocus();
@@ -131,7 +131,5 @@ public class KeyboardMenu extends Menu {
         }
 
         lastMenuInput = Game.time().now();
-
-
         }
     }
