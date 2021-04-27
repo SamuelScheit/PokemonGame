@@ -12,5 +12,6 @@ public class PlayerInput {
 
         Input.keyboard().onKeyTyped(KeyEvent.VK_I, e -> GameStatus.instance().triggerDialog());
 
+        Input.keyboard().onKeyTyped(KeyEvent.VK_O, e -> Game.screens().display("fight"));
     }
 }
