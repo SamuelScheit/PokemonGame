@@ -10,6 +10,7 @@
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
+    <orderEntry type="library" name="sqlite-jdbc-3.34.0" level="project" />
     <orderEntry type="library" name="Maven: de.gurkenlabs:litiengine:0.5.1" level="project" />
     <orderEntry type="library" scope="RUNTIME" name="Maven: net.java.jinput:jinput:2.0.9" level="project" />
     <orderEntry type="library" scope="RUNTIME" name="Maven: net.java.jinput:jinput:natives-all:2.0.9" level="project" />
@@ -24,6 +25,5 @@
     <orderEntry type="library" scope="RUNTIME" name="Maven: com.sun.xml.bind:jaxb-core:2.3.0.1" level="project" />
     <orderEntry type="library" scope="RUNTIME" name="Maven: com.sun.xml.bind:jaxb-impl:2.3.2" level="project" />
     <orderEntry type="library" name="Maven: org.xerial:sqlite-jdbc:3.34.0" level="project" />
-    <orderEntry type="library" name="sqlite-jdbc-3.34.0" level="project" />
   </component>
 </module>

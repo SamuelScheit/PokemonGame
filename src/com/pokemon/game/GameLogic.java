@@ -20,7 +20,6 @@ public class GameLogic {
 
         // Game.world().setGravity(120);
 
-        // add default game logic for when a level was loaded
         Game.world().onLoaded(e -> {
             Game.world().camera().updateFocus();
             System.out.println("world loaded");
