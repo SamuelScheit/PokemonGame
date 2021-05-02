@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <map version="1.4" tiledversion="1.4.3" orientation="orthogonal" renderorder="right-down" width="20" height="20" tilewidth="32" tileheight="32" infinite="0" nextlayerid="35" nextobjectid="6">
  <tileset firstgid="1" source="tiles/original_pokemon.tsx"/>
- <tileset firstgid="5209" source="tiles/character.tsx"/>
  <layer id="1" name="grass" width="20" height="20">
   <data encoding="base64" compression="zlib">
    eJwzYWJgMBnFIx6b4mAPFvNG8SgexYMPAwB3gFRl
@@ -29,6 +28,5 @@
  </layer>
  <objectgroup id="34" name="interactable">
   <object id="1" name="door" x="356.217" y="238.843" width="16.8327" height="16.3778"/>
-  <object id="5" gid="5209" x="319.616" y="317.434" width="32" height="43"/>
  </objectgroup>
 </map>
