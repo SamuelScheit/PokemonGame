@@ -42,6 +42,6 @@ public class InGameScreen extends GameScreen {
 
     @Override
     protected void initializeComponents() {
-        Game.world().loadEnvironment("map1");
+        Game.world().loadEnvironment("ErstesGebiet");
     }
 }

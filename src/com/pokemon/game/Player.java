@@ -9,7 +9,7 @@ import java.awt.event.KeyEvent;
 
 @EntityInfo(width = 32, height = 43)
 @MovementInfo(velocity = 70)
-@CollisionInfo(collisionBoxWidth = 32, collisionBoxHeight = 43, collision = true)
+@CollisionInfo(collisionBoxWidth = 30, collisionBoxHeight = 14, collision = true)
 public class Player extends Creature implements IUpdateable {
 
     private static Player instance;

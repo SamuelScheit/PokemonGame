@@ -30,9 +30,9 @@ public class GameLogic {
             }
         });
 
-        Game.world().loadEnvironment("map1");
-        Trigger trigger1 = Game.world().environment().getTrigger("TRIGGER_BOX_1");
-        trigger1.addTriggerListener(new PokemonTriggerListener(TriggerBoxEnum.TRIGGER_BOX_1));
+        Game.world().loadEnvironment("ErstesGebiet");
+        Trigger trigger1 = Game.world().environment().getTrigger("TRIGGER_BOX_LABOR_AUSSEN");
+        trigger1.addTriggerListener(new PokemonTriggerListener(TriggerBoxEnum.TRIGGER_BOX_LABOR_AUSSEN));
         /* Trigger trigger2 = Game.world().environment().getTrigger("TRIGGER_BOX_2");
         trigger2.addTriggerListener(new PokemonTriggerListener(TriggerBoxEnum.TRIGGER_BOX_2));
         Trigger trigger3 = Game.world().environment().getTrigger("TRIGGER_BOX_3");
