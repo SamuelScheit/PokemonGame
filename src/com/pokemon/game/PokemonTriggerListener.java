@@ -15,10 +15,14 @@ public class PokemonTriggerListener implements TriggerListener {
     public void activated(TriggerEvent event) {
         GameStatus.instance().setTriggerBox(trigger);
         System.out.println("activated "+ trigger);
-        if(trigger == TriggerBoxEnum.TRIGGER_BOX_1){
-            Game.world().loadEnvironment("map2");
+        if(trigger == TriggerBoxEnum.TRIGGER_BOX_LABOR_AUSSEN){
+            Game.world().loadEnvironment("LaborInnen");
         }
-    }
+        if(trigger == TriggerBoxEnum.TRIGGER_BOX_LABOR_INNEN){
+            Game.world().loadEnvironment("ErstesGebiet");
+            }
+        }
+
 
     @Override
     public String canActivate(TriggerEvent event) {
