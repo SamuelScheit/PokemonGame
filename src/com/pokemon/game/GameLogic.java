@@ -9,6 +9,8 @@ import de.gurkenlabs.litiengine.graphics.PositionLockCamera;
 import javax.swing.*;
 
 public class GameLogic {
+
+
     public static void init() {
         // we'll use a camera in our game that is locked to the location of the player
         Camera camera = new PositionLockCamera(Player.instance());
@@ -17,6 +19,7 @@ public class GameLogic {
         Game.screens().setChangeCooldown(0);
         Game.graphics().setBaseRenderScale(4.001f);
         ((JFrame) Game.window().getHostControl()).setResizable(false);
+        //GameStatus.instance().db.insertAttack(1, "Glut", 10);
 
         // Game.world().setGravity(120);
 
@@ -38,4 +41,6 @@ public class GameLogic {
         Trigger trigger3 = Game.world().environment().getTrigger("TRIGGER_BOX_3");
         trigger3.addTriggerListener(new PokemonTriggerListener(TriggerBoxEnum.TRIGGER_BOX_3));*/
     }
+
+
 }

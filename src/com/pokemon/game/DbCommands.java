@@ -5,6 +5,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.LinkedList;
 
 public class DbCommands {
     Connection con;
@@ -13,7 +14,8 @@ public class DbCommands {
         con = DbConnection.connect();
     }
 
-    private void insert(int Pokemon_ID, String Pokemon_Name, int HP, int Attack_1, int Attack_2, int Sprite_ID) {
+
+    public void insertPokemon(int Pokemon_ID, String Pokemon_Name, int HP, int Attack_1, int Attack_2, int Sprite_ID) {
         PreparedStatement ps = null;
 
         try {
@@ -33,36 +35,19 @@ public class DbCommands {
         }
     }
 
-    private void readTable() {
-        PreparedStatement ps = null;
-        ResultSet rs = null;
-
+    public ResultSet readTable(PreparedStatement ps) {
         try {
-            String sql = "SELECT * FROM POKEMON";
-            ps = con.prepareStatement(sql);
-            rs = ps.executeQuery();
-            while (rs.next()) {
-                String Pokemon_ID = rs.getString("Pokemon_ID");
-                String Pokemon_Name = rs.getString("Pokemon_Name");
-                String HP = rs.getString("HP");
-                String Attack_1 = rs.getString("Attack_1");
-                String Attack_2 = rs.getString("Attack_2");
-                String Sprite_ID = rs.getString("Sprite_ID");
-
-                System.out.println("All Pokemon have been exported");
-                System.out.println("Pokemon_ID: " + Pokemon_ID);
-                System.out.println("Pokemon_Name: " + Pokemon_Name);
-                System.out.println("HP: " + HP);
-                System.out.println("Attack_1: " + Attack_1);
-                System.out.println("Attack_2: " + Attack_2);
-                System.out.println("Sprite_ID: " + Sprite_ID);
+            ResultSet rs = ps.executeQuery();
+            if (rs.next()) {
+                rs.close();
+                return rs;
             }
-
-            rs.close();
             ps.close();
+
         } catch (SQLException e) {
             System.out.println(e.toString());
         }
+        return null;
     }
 
     public Pokemon getPokemon(String id) {
@@ -103,11 +88,10 @@ public class DbCommands {
         return null;
     }
 
-    private void updateSavegame() {
-        Connection con = DbConnection.connect();
+    public void updateSavegame() {
         PreparedStatement ps = null;
         try {
-            String sql = "UPDATE SPIELSTAENDE set Player_Pos_X = ? AND Player_Pos_Y = ? AND Map_Name = ? WHERE Game_ID = ?";
+            String sql = "UPDATE SAVEGAME set Player_Pos_X = ? AND Player_Pos_Y = ? AND Map_Name = ? WHERE Game_ID = ?";
             ps = con.prepareStatement(sql);
             ps.setString(1, "");
             ps.setString(2, "");
@@ -121,6 +105,18 @@ public class DbCommands {
         }
     }
 
+    public void updatePokemonCatch(int Pokemon_ID){
+        PreparedStatement ps = null;
+        try{
+            String sql = "INSERT into INVENTORY(Pokemon_ID) VALUES (?)";
+            ps = con.prepareStatement(sql);
+            ps.setString(1, String.valueOf(Pokemon_ID));
+        }
+        catch (Exception e){
+            System.out.println(e.toString());
+        }
+    }
+
     public void deletePokemon(String id) throws SQLException {
         String sql = "DELETE from POKEMON WHERE Pokemon_ID = ?";
         PreparedStatement ps = con.prepareStatement(sql);
@@ -128,7 +124,7 @@ public class DbCommands {
         this.deleteRow(ps);
     }
 
-    private void deleteRow(PreparedStatement ps) {
+    public void deleteRow(PreparedStatement ps) {
         try {
             ps.execute();
             System.out.println("Data has been deleted");
@@ -140,7 +136,7 @@ public class DbCommands {
         }
     }
 
-    private void getNumberOfPokemon() {
+    public void getNumberOfPokemon() {
         Connection con = DbConnection.connect();
         PreparedStatement ps = null;
         ResultSet rs = null;
@@ -154,6 +150,23 @@ public class DbCommands {
             System.out.println("You have " + size + " Pokemon");
 
             rs.close();
+            ps.close();
+        } catch (SQLException e) {
+            System.out.println(e.toString());
+        }
+    }
+
+    public void insertAttack(int Attack_ID, String Attack_Name, int Attack_DMG) {
+        PreparedStatement ps = null;
+
+        try {
+            String sql = "INSERT INTO ATTACKS(Attack_ID, Attack_Name, Attack_DMG) VALUES(?,?,?)";
+            ps = con.prepareStatement(sql);
+            ps.setString(1, String.valueOf(Attack_ID));
+            ps.setString(2, Attack_Name);
+            ps.setString(3, String.valueOf(Attack_DMG));
+            ps.execute();
+            System.out.println("Data has been inserted");
             ps.close();
         } catch (SQLException e) {
             System.out.println(e.toString());
