@@ -8,4 +8,5 @@ public enum TriggerBoxEnum {
     TRIGGER_BOX_G_OUTSIDE_1,
     TRIGGER_BOX_1,
 
+
 }

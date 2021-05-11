@@ -34,12 +34,16 @@ public class GameLogic {
         });
 
         Game.world().loadEnvironment("ErstesGebiet");
-        Trigger trigger1 = Game.world().environment().getTrigger("TRIGGER_BOX_LABOR_AUSSEN");
-        trigger1.addTriggerListener(new PokemonTriggerListener(TriggerBoxEnum.TRIGGER_BOX_LABOR_AUSSEN));
-        /* Trigger trigger2 = Game.world().environment().getTrigger("TRIGGER_BOX_2");
-        trigger2.addTriggerListener(new PokemonTriggerListener(TriggerBoxEnum.TRIGGER_BOX_2));
-        Trigger trigger3 = Game.world().environment().getTrigger("TRIGGER_BOX_3");
-        trigger3.addTriggerListener(new PokemonTriggerListener(TriggerBoxEnum.TRIGGER_BOX_3));*/
+        Trigger trigger_l_o_1 = Game.world().environment().getTrigger("TRIGGER_BOX_LABOR_AUSSEN");
+        trigger_l_o_1.addTriggerListener(new PokemonTriggerListener(TriggerBoxEnum.TRIGGER_BOX_LABOR_AUSSEN));
+        Trigger trigger_g_o_1 = Game.world().environment().getTrigger("TRIGGER_BOX_G_OUTSIDE_1");
+        trigger_g_o_1.addTriggerListener(new PokemonTriggerListener(TriggerBoxEnum.TRIGGER_BOX_G_OUTSIDE_1));
+
+
+
+        /*
+        Trigger trigger4 = Game.world().environment().getTrigger("TRIGGER_BOX_4");
+        trigger4.addTriggerListener(new PokemonTriggerListener(TriggerBoxEnum.TRIGGER_BOX_4));*/
     }
 
 

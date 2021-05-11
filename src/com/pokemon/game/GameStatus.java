@@ -6,6 +6,7 @@ public class GameStatus {
     private boolean startup;
     private GameDialogs dialogs;
     private boolean firstDialog;
+    private boolean secondDialog;
     private boolean ingame;
     private static GameStatus instance;
 
@@ -44,6 +45,18 @@ public class GameStatus {
         return firstDialog;
     }
 
+    public void setSecondDialog(boolean secondDialog){
+        this.secondDialog = secondDialog;
+    }
+
+    public String getSecondDialog() {
+        return nextDialog;
+    }
+
+    public boolean isSecondDialog(){
+        return secondDialog;
+    }
+
     public void setFirstDialog(boolean firstDialog){
         this.firstDialog = firstDialog;
     }
@@ -55,15 +68,25 @@ public class GameStatus {
     public void triggerDialog(){
         if(isStartup() && getTriggerBox() == TriggerBoxEnum.NONE){
             nextDialog = this.dialogs.getNextIntroText();
+            
             if(nextDialog == null){
                 setStartup(false);
                 setFirstDialog(true);
             }
         }
-        if(isFirstDialog() && getTriggerBox() == TriggerBoxEnum.TRIGGER_BOX_1){
+        if(isFirstDialog() && getTriggerBox() == TriggerBoxEnum.TRIGGER_BOX_G_LABOR_1){
             nextDialog = this.dialogs.getNextDialog1();
+
             if(nextDialog == null){
                setFirstDialog(false);
+               setSecondDialog(true);
+            }
+        }
+        if(isSecondDialog() && getTriggerBox() == TriggerBoxEnum.TRIGGER_BOX_G_OUTSIDE_1){
+            nextDialog = this.dialogs.getNextDialog2();
+
+            if(nextDialog == null){
+                setSecondDialog(false);
             }
         }
     }
