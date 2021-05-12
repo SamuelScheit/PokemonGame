@@ -1,6 +1,7 @@
 package com.pokemon.game;
 
 public class GameStatus {
+    public DbCommands db;
     private TriggerBoxEnum triggerBox;
     private String nextDialog;
     private boolean startup;
@@ -15,6 +16,7 @@ public class GameStatus {
         this.dialogs = new GameDialogs();
         this.firstDialog = false;
         this.ingame = false;
+        db = new DbCommands();
     }
 
     public static GameStatus instance() {
