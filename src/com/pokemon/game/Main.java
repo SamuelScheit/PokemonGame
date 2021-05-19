@@ -4,9 +4,10 @@ import de.gurkenlabs.litiengine.Game;
 import de.gurkenlabs.litiengine.resources.Resources;
 
 import javax.swing.*;
+import java.io.IOException;
 
 public class Main {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException {
         DbConnection.connect();
         Game.setInfo("assets/gameinfo.xml");
         Game.init(args);

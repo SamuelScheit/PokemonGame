@@ -10,13 +10,13 @@ public class Pokemon {
     public int attack2;
     public Spritesheet sprite;
 
-    public Pokemon(int id, String name, int HP, int attack1, int attack2 /*, Spritesheet sprite */) {
+    public Pokemon(int id, String name, int HP, int attack1, int attack2, Spritesheet sprite) {
         this.id = id;
         this.name = name;
         this.HP = HP;
         this.attack1 = attack1;
         this.attack2 = attack2;
-        // this.sprite = sprite;
+        this.sprite = sprite;
     }
 }
 

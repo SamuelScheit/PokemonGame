@@ -1,11 +1,16 @@
 package com.pokemon.game;
 
-import javax.xml.transform.Result;
+import de.gurkenlabs.litiengine.graphics.Spritesheet;
+import de.gurkenlabs.litiengine.resources.Resource;
+import de.gurkenlabs.litiengine.resources.Resources;
+
+import javax.imageio.ImageIO;
+import java.io.ByteArrayInputStream;
+import java.io.IOException;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.LinkedList;
 
 public class DbCommands {
     Connection con;
@@ -13,7 +18,6 @@ public class DbCommands {
     public DbCommands() {
         con = DbConnection.connect();
     }
-
 
     public void insertPokemon(int Pokemon_ID, String Pokemon_Name, int HP, int Attack_1, int Attack_2, int Sprite_ID) {
         PreparedStatement ps = null;
@@ -52,22 +56,31 @@ public class DbCommands {
 
     public Pokemon getPokemon(String id) {
         try {
-            String sql = "Select Pokemon_Name from POKEMON where Pokemon_ID = ?";
+            String sql = "Select * from POKEMON where Pokemon_ID = ?";
             PreparedStatement ps = con.prepareStatement(sql);
             ps.setString(1, id);
             ResultSet rs = this.readRow(ps);
             if (rs == null) return null;
 
+            String pokemonName = rs.getString("Pokemon_Name");
+            byte[] spriteBinary = rs.getBytes("Sprite");
+            Spritesheet spritesheet = new Spritesheet(ImageIO.read(new ByteArrayInputStream(spriteBinary)), pokemonName, 32, 32);
+
+            Resources.spritesheets().add(pokemonName, spritesheet);
+
             Pokemon pokemon = new Pokemon(
-                    rs.getInt("id"),
-                    rs.getString("name"),
+                    rs.getInt("Pokemon_ID"),
+                    pokemonName,
                     rs.getInt("HP"),
-                    rs.getInt("attack1"),
-                    rs.getInt("attack2")
+                    rs.getInt("Attack_1"),
+                    rs.getInt("Attack_2"),
+                    spritesheet
             );
 
+            rs.close();
+
             return pokemon;
-        } catch (SQLException e) {
+        } catch (SQLException | IOException e) {
             System.out.println(e.toString());
         }
         return null;
@@ -77,11 +90,9 @@ public class DbCommands {
         try {
             ResultSet rs = ps.executeQuery();
             if (rs.next()) {
-                rs.close();
                 return rs;
             }
             ps.close();
-
         } catch (SQLException e) {
             System.out.println(e.toString());
         }
@@ -105,14 +116,13 @@ public class DbCommands {
         }
     }
 
-    public void updatePokemonCatch(int Pokemon_ID){
+    public void updatePokemonCatch(int Pokemon_ID) {
         PreparedStatement ps = null;
-        try{
+        try {
             String sql = "INSERT into INVENTORY(Pokemon_ID) VALUES (?)";
             ps = con.prepareStatement(sql);
             ps.setString(1, String.valueOf(Pokemon_ID));
-        }
-        catch (Exception e){
+        } catch (Exception e) {
             System.out.println(e.toString());
         }
     }

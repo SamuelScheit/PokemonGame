@@ -7,9 +7,9 @@ import de.gurkenlabs.litiengine.physics.IMovementController;
 
 import java.awt.event.KeyEvent;
 
-@EntityInfo(width = 32, height = 43)
+@EntityInfo(width = 16, height = 32)
 @MovementInfo(velocity = 70)
-@CollisionInfo(collisionBoxWidth = 30, collisionBoxHeight = 14, collision = true)
+@CollisionInfo(collisionBoxWidth = 16, collisionBoxHeight = 16, collision = true)
 public class Player extends Creature implements IUpdateable {
 
     private static Player instance;
@@ -35,7 +35,8 @@ public class Player extends Creature implements IUpdateable {
         this.setController(IMovementController.class, movementController);
     }
 
-    @Override public void update() {
+    @Override
+    public void update() {
 
     }
 }
