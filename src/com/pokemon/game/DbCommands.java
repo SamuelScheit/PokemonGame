@@ -64,8 +64,10 @@ public class DbCommands {
 
             String pokemonName = rs.getString("Pokemon_Name");
             byte[] spriteBinary = rs.getBytes("Sprite");
+            byte[] spriteBinary1 = rs.getBytes("Attack_Sprite");
             Spritesheet spritesheet = new Spritesheet(ImageIO.read(new ByteArrayInputStream(spriteBinary)), pokemonName, 32, 32);
-
+            Spritesheet attackSpritesheet = new Spritesheet(ImageIO.read(new ByteArrayInputStream(spriteBinary1)),pokemonName, 32, 32);
+            Resources.spritesheets().add(pokemonName, spritesheet);
             Resources.spritesheets().add(pokemonName, spritesheet);
 
             Pokemon pokemon = new Pokemon(
@@ -74,7 +76,8 @@ public class DbCommands {
                     rs.getInt("HP"),
                     rs.getInt("Attack_1"),
                     rs.getInt("Attack_2"),
-                    spritesheet
+                    spritesheet,
+                    attackSpritesheet
             );
 
             rs.close();
