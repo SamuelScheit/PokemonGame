@@ -9,7 +9,6 @@ public class GameStatus {
     private boolean firstDialog;
     private boolean ingame;
     private static GameStatus instance;
-    public DbCommands db;
 
     public GameStatus() {
         this.startup = true;
