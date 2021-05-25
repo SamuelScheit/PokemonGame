@@ -11,6 +11,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 
 public class DbCommands {
     Connection con;
@@ -18,6 +19,17 @@ public class DbCommands {
 
     public DbCommands() {
         con = DbConnection.connect();
+    }
+
+    public static void main(String []args){
+        DbCommands db = new DbCommands();
+       /* db.getInventory();
+        ArrayList <Pokemon> Inventory = db.getInventory();
+
+        for (Pokemon pokemon:Inventory){
+            System.out.println(pokemon.name + pokemon.HP + pokemon.);
+        }*/
+        db.getAttack(1);
     }
 
     public void insertPokemon(int Pokemon_ID, String Pokemon_Name, int HP, int Attack_1, int Attack_2, int Sprite_ID) {
@@ -57,7 +69,7 @@ public class DbCommands {
 
   public Pokemon getPokemon(String id) {
         try {
-            String sql = "Select * from POKEMON where Pokemon_ID = ?";
+            String sql = "SELECT * FROM POKEMON WHERE Pokemon_ID = ?";
             PreparedStatement ps = con.prepareStatement(sql);
             ps.setString(1, id);
             ResultSet rs = this.readRow(ps);
@@ -65,20 +77,17 @@ public class DbCommands {
 
             String pokemonName = rs.getString("Pokemon_Name");
             byte[] spriteBinary = rs.getBytes("Sprite");
-            //byte[] spriteBinary1 = rs.getBytes("Attack_Sprite");
             Spritesheet spritesheet = new Spritesheet(ImageIO.read(new ByteArrayInputStream(spriteBinary)), pokemonName, 32, 32);
-            //Spritesheet attackSpritesheet = new Spritesheet(ImageIO.read(new ByteArrayInputStream(spriteBinary1)),pokemonName, 32, 32);
             Resources.spritesheets().add(pokemonName, spritesheet);
-            // Resources.spritesheets().add(pokemonName, attackSpritesheet);
 
             Pokemon pokemon = new Pokemon(
                     rs.getInt("Pokemon_ID"),
                     pokemonName,
                     rs.getInt("HP"),
-                    rs.getInt("Attack_1"),
-                    rs.getInt("Attack_2"),
-                    spritesheet/*,
-                    attackSpritesheet*/
+                    this.getAttack(rs.getInt("Attack_1")),
+                    this.getAttack(rs.getInt("Attack_2")),
+                    spritesheet
+
             );
 
             rs.close();
@@ -106,7 +115,7 @@ public class DbCommands {
     public void updatePokemonCatch(int Pokemon_ID) {
         PreparedStatement ps = null;
         try {
-            String sql = "INSERT into INVENTORY(Pokemon_ID) VALUES (?)";
+            String sql = "INSERT INTO INVENTORY(Pokemon_ID) VALUES (?)";
             ps = con.prepareStatement(sql);
             ps.setString(1, String.valueOf(Pokemon_ID));
         } catch (Exception e) {
@@ -115,7 +124,7 @@ public class DbCommands {
     }
 
     public void deletePokemon(String id) throws SQLException {
-        String sql = "DELETE from POKEMON WHERE Pokemon_ID = ?";
+        String sql = "DELETE * FROM POKEMON WHERE Pokemon_ID = ?";
         PreparedStatement ps = con.prepareStatement(sql);
         ps.setString(1, id);
         this.deleteRow(ps);
@@ -138,7 +147,7 @@ public class DbCommands {
         ResultSet rs = null;
 
         try {
-            String sql = "Select count(Pokemon_ID) from POKEMON";
+            String sql = "SELECT COUNT(Pokemon_ID) FROM POKEMON";
             ps = con.prepareStatement(sql);
             rs = ps.executeQuery();
 
@@ -169,76 +178,76 @@ public class DbCommands {
         }
     }
 
-    public Attack getAttack1(String id){
+    public Attack getAttack(int id){
         PreparedStatement ps = null;
         ResultSet rs = null;
 
         try{
-            String sql = "Select Attack_1 from POKEMON where Pokemon_ID = ?";
-            ps = con.prepareStatement(sql);
-            ps.setString(1, id);
-            rs = ps.executeQuery();
 
-            int attackId = rs.getInt("attack_1");
 
-            ps.close();
-            rs.close();
-
-            sql = "Select Attack_Name, Attack_DMG from ATTACKS where Attack_ID = ?";
+            String sql = "SELECT Attack_Name, Attack_DMG, Sprite FROM ATTACKS WHERE Attack_ID = ?";
 
 
             ps = con.prepareStatement(sql);
-            ps.setString(1,"" +attackId);
+            ps.setInt(1,id);
             rs = ps.executeQuery();
 
             String attackName = rs.getString(1);
             int attackDMG = rs.getInt(2);
+            byte[] spriteBinary = rs.getBytes("sprite");
+            Spritesheet spritesheet = new Spritesheet(ImageIO.read(new ByteArrayInputStream(spriteBinary)), attackName, 32, 32);
+            Resources.spritesheets().add(attackName, spritesheet);
 
             ps.close();
             rs.close();
 
-            return new Attack(attackName,attackId, attackDMG);
+            System.out.println(attackName);
+            System.out.println(attackDMG);
+            System.out.println(spritesheet);
+            return new Attack(id, attackName, attackDMG, spritesheet);
         }
-        catch (SQLException e){
+        catch (Exception e){
             System.out.println(e.toString());
         }
         return null;
     }
 
-    public Attack getAttack2(String id){
+
+    public void insertIntoInventory(int pokemonID){
         PreparedStatement ps = null;
-        ResultSet rs = null;
-
-        try{
-            String sql = "Select Attack_2 from POKEMON where Pokemon_ID = ?";
+        try {
+            String sql = "UPDATE INVENTORY set Unlocked = ? where Pokemon_ID = ?";
             ps = con.prepareStatement(sql);
-            ps.setString(1, id);
-            rs = ps.executeQuery();
+            ps.setString(1,"1");
+            ps.setString(2, String.valueOf(pokemonID));
+            System.out.println("Your new Pokemon is saved in your Inventory");
 
-            int attackId = rs.getInt("attack_2");
-
+            ps.execute();
             ps.close();
-            rs.close();
-
-            sql = "Select Attack_Name, Attack_DMG from ATTACKS where Attack_ID = ?";
-
-
-            ps = con.prepareStatement(sql);
-            ps.setString(1,"" +attackId);
-            rs = ps.executeQuery();
-
-            String attackName = rs.getString(1);
-            int attackDMG = rs.getInt(2);
-
-            ps.close();
-            rs.close();
-
-            return new Attack(attackName,attackId, attackDMG);
         }
         catch (SQLException e){
             System.out.println(e.toString());
         }
-        return null;
     }
 
+    public ArrayList <Pokemon> getInventory(){
+        PreparedStatement ps = null;
+        ResultSet rs = null;
+        ArrayList<Pokemon> ownedPokemon = new ArrayList<Pokemon>();
+        try{
+            String sql = "SELECT Pokemon_ID FROM INVENTORY WHERE Unlocked = 1";
+            ps = con.prepareStatement(sql);
+            rs = ps.executeQuery();
+            while(rs.next()){
+                String pokemonID = rs.getString("Pokemon_ID");
+                ownedPokemon.add(this.getPokemon(pokemonID));
+            }
+            ps.close();
+            return ownedPokemon;
+        }
+        catch (SQLException e) {
+            System.out.println(e.toString());
+        }
+        return null;
+    }
 }
