@@ -32,18 +32,17 @@ public class DbCommands {
         db.getAttack(1);
     }
 
-    public void insertPokemon(int Pokemon_ID, String Pokemon_Name, int HP, int Attack_1, int Attack_2, int Sprite_ID) {
+    public void insertPokemon(int Pokemon_ID, String Pokemon_Name, int HP, int Attack_1, int Attack_2) {
         PreparedStatement ps = null;
 
         try {
-            String sql = "INSERT INTO POKEMON(Pokemon_ID, Pokemon_Name, HP, Attack_1, Attack_2, Sprite_ID) VALUES(?,?,?,?,?,?)";
+            String sql = "INSERT INTO POKEMON(Pokemon_ID, Pokemon_Name, HP, Attack_1, Attack_2, Sprite_ID) VALUES(?,?,?,?,?)";
             ps = con.prepareStatement(sql);
             ps.setString(1, String.valueOf(Pokemon_ID));
             ps.setString(2, Pokemon_Name);
             ps.setString(3, String.valueOf(HP));
             ps.setString(4, String.valueOf(Attack_1));
             ps.setString(5, String.valueOf(Attack_2));
-            ps.setString(6, String.valueOf(Sprite_ID));
             ps.execute();
             System.out.println("Data has been inserted");
             ps.close();
@@ -201,9 +200,6 @@ public class DbCommands {
             ps.close();
             rs.close();
 
-            System.out.println(attackName);
-            System.out.println(attackDMG);
-            System.out.println(spritesheet);
             return new Attack(id, attackName, attackDMG, spritesheet);
         }
         catch (Exception e){
