@@ -1,4 +1,4 @@
-Tue Apr 27 12:51:04 CEST 2021 Main Update Loop threw an exception:
+Thu Jun 03 16:51:11 CEST 2021 Main Update Loop threw an exception:
 java.lang.NullPointerException
 	at de.gurkenlabs.litiengine.environment.Environment.render(Environment.java:2459)
 	at de.gurkenlabs.litiengine.environment.Environment.render(Environment.java:2298)

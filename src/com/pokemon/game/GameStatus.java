@@ -42,11 +42,11 @@ public class GameStatus {
         this.startup = startup;
     }
 
-    public boolean isFirstDialog(){
+    public boolean isFirstDialog() {
         return firstDialog;
     }
 
-    public void setFirstDialog(boolean firstDialog){
+    public void setFirstDialog(boolean firstDialog) {
         this.firstDialog = firstDialog;
     }
 
@@ -54,26 +54,32 @@ public class GameStatus {
         return nextDialog;
     }
 
-    public void triggerDialog(){
-        if(isStartup() && getTriggerBox() == TriggerBoxEnum.NONE){
+    public void triggerDialog() {
+
+        if (isStartup() && getTriggerBox() == TriggerBoxEnum.NONE) {
             nextDialog = this.dialogs.getNextIntroText();
-            if(nextDialog == null){
+            if (nextDialog == null) {
                 setStartup(false);
                 setFirstDialog(true);
             }
         }
-        if(isFirstDialog() && getTriggerBox() == TriggerBoxEnum.TRIGGER_BOX_1){
+        if (isFirstDialog() && getTriggerBox() == TriggerBoxEnum.TRIGGER_BOX_G_LABOR_1) {
             nextDialog = this.dialogs.getNextDialog1();
-            if(nextDialog == null){
-               setFirstDialog(false);
+            if (nextDialog == null) {
+                setFirstDialog(false);
             }
         }
     }
+
     public TriggerBoxEnum getTriggerBox() {
         return triggerBox;
     }
 
     public void setTriggerBox(TriggerBoxEnum triggerBox) {
         this.triggerBox = triggerBox;
+    }
+
+    public boolean isMovementAllowed() {
+        return this.dialogs.isMovementAllowed();
     }
 }

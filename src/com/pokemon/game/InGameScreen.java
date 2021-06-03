@@ -23,7 +23,7 @@ public class InGameScreen extends GameScreen {
 
         g.setFont(new Font("Arial", Font.PLAIN, 50));
 
-        g.setColor(Color.RED);
+        g.setColor(Color.BLACK);
 
         String nextDialog = GameStatus.instance().getNextDialog();
         if (nextDialog != null) {
