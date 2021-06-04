@@ -8,11 +8,10 @@ public class Attack {
     public String name;
     public Spritesheet sprite;
 
-    public Attack(int id, String attackName, int attackDMG, Spritesheet spritesheet) {
+    public Attack(int id, String attackName, int attackDMG) {
         this.name = attackName;
         this.id = id;
         this.damage = attackDMG;
-        this.sprite = spritesheet;
     }
 }
 
