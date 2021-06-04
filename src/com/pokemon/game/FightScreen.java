@@ -14,6 +14,7 @@ import de.gurkenlabs.litiengine.resources.Resources;
 import java.awt.*;
 import java.awt.geom.Point2D;
 import java.awt.geom.RoundRectangle2D;
+import java.awt.image.BufferedImage;
 import java.io.IOException;
 import java.util.LinkedList;
 import java.util.concurrent.TimeUnit;
@@ -29,10 +30,8 @@ public class FightScreen extends GameScreen {
 
     public final static String NAME = "fight";
 
-    public FightScreen() throws IOException {
+    public FightScreen() {
         super(FightScreen.NAME);
-        pokemon1 = GameStatus.instance().db.getPokemon("1");
-        pokemon2 = GameStatus.instance().db.getPokemon("2");
         turn = pokemon1;
     }
 
@@ -99,12 +98,14 @@ public class FightScreen extends GameScreen {
         // text in textbox
         g.setColor(Color.BLACK);
         String text = "";
-        if (attack != null) {
-            text = turn.name + " setzt " + attack.name + " ein!";
-        } else if (turn == pokemon1) {
-            text = "Wähle eine Attacke aus!";
-        } else {
-            text = turn.name + " ist am Zug";
+        if (turn != null) {
+            if (attack != null) {
+                text = turn.name + " setzt " + attack.name + " ein!";
+            } else if (turn == pokemon1) {
+                text = "Wähle eine Attacke aus!";
+            } else {
+                text = turn.name + " ist am Zug";
+            }
         }
 
         TextRenderer.renderWithLinebreaks(g, text, 40, 600, 450, true);
@@ -123,8 +124,11 @@ public class FightScreen extends GameScreen {
         ShapeRenderer.render(g, new RoundRectangle2D.Double(580, 650, 200, 50, 20, 20));
         */
 
-        ImageRenderer.renderScaled(g, pokemon1.sprite.getImage(), 80, 340, 7);
-        ImageRenderer.renderScaled(g, pokemon2.sprite.getImage(), 730, 120, 7);
+        BufferedImage s1 = attack != null ? (turn == pokemon1 ? pokemon1.spriteAttack.getImage() : pokemon1.spriteDamage.getImage()) : pokemon1.sprite.getImage();
+        BufferedImage s2 = attack != null ? (turn == pokemon2 ? pokemon2.spriteAttack.getImage() : pokemon2.spriteDamage.getImage()) : pokemon2.sprite.getImage();
+
+        ImageRenderer.renderScaled(g, s1, 80, 340, 7);
+        ImageRenderer.renderScaled(g, s2, 730, 120, 7);
 
         if (attack != null && particles != null) {
             particles.createNewParticle().render(g, new Point2D.Double(300, 300));
@@ -238,8 +242,12 @@ public class FightScreen extends GameScreen {
         Game.world().unloadEnvironment();
         System.out.println("show fight screen");
 
+        pokemon1 = GameStatus.instance().db.getPokemon("1");
+        pokemon2 = GameStatus.instance().db.getPokemon("2");
+
         attackbuttons.get(0).setText(pokemon1.attack1.name);
         System.out.println(pokemon1.attack1.name);
         attackbuttons.get(1).setText(pokemon1.attack2.name);
+
     }
 }
