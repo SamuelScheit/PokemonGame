@@ -67,7 +67,7 @@ public class DbCommands {
         return null;
     }
 
-    public Pokemon getPokemon(String id) {
+  public Pokemon getPokemon(String id) {
         try {
             String sql = "SELECT * FROM POKEMON WHERE Pokemon_ID = ?";
             PreparedStatement ps = con.prepareStatement(sql);
@@ -205,6 +205,7 @@ public class DbCommands {
 
             System.out.println(attackName);
             System.out.println(attackDMG);
+            System.out.println(spritesheet);
             return new Attack(id, attackName, attackDMG, spritesheet);
         } catch (Exception e) {
             System.out.println(e.toString());

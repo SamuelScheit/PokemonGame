@@ -4,6 +4,7 @@ import de.gurkenlabs.litiengine.IUpdateable;
 import de.gurkenlabs.litiengine.entities.*;
 import de.gurkenlabs.litiengine.input.KeyboardEntityController;
 import de.gurkenlabs.litiengine.physics.IMovementController;
+import de.gurkenlabs.litiengine.physics.MovementController;
 
 import java.awt.event.KeyEvent;
 
@@ -13,6 +14,7 @@ import java.awt.event.KeyEvent;
 public class Player extends Creature implements IUpdateable {
 
     private static Player instance;
+
 
     public static Player instance() {
         if (instance == null) {
@@ -25,18 +27,22 @@ public class Player extends Creature implements IUpdateable {
     private Player() {
         super("character");
         // setup movement controller
+
         KeyboardEntityController<Player> movementController = new KeyboardEntityController<>(this);
         movementController.addUpKey(KeyEvent.VK_UP);
         movementController.addDownKey(KeyEvent.VK_DOWN);
         movementController.addLeftKey(KeyEvent.VK_LEFT);
         movementController.addRightKey(KeyEvent.VK_RIGHT);
-        movementController.onMovementCheck(e -> GameStatus.instance().isIngame());
+        movementController.onMovementCheck(e -> GameStatus.instance().isIngame() && GameStatus.instance().isMovementAllowed());
 
         this.setController(IMovementController.class, movementController);
     }
+
 
     @Override
     public void update() {
 
     }
 }
+
+
