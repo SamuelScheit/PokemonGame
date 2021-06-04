@@ -18,7 +18,7 @@ public class Pausescreen extends GameScreen {
     KeyboardMenu menu;
     String[] menuEntries;
 
-    public static String NAME = "Pausescreen";
+    public static final String NAME = "Pausescreen";
 
     public Pausescreen() {
         super(Pausescreen.NAME);
@@ -64,7 +64,7 @@ public class Pausescreen extends GameScreen {
         backdrop.getAppearanceHovered().setTransparentBackground(false);
         backdrop.getAppearanceHovered().setBackgroundColor1(backdropColor);
 
-        menuEntries = new String[]{"Resume","Settings","Return to home", "Quit Game"};
+        menuEntries = new String[]{"Fortsetzen","Einstellungen","Zurück zum Titelbildschirm", "Spiel beenden"};
 
         Image headlineImage = Resources.images().get("assets/headlines/pause.png");
         ImageComponent headline = new ImageComponent(0,0, headlineImage);
