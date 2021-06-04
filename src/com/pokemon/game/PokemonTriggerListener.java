@@ -31,6 +31,14 @@ public class PokemonTriggerListener implements TriggerListener {
             Game.world().loadEnvironment("ErstesGebiet");
 
         }
+        if (trigger == TriggerBoxEnum.TRIGGER_BOX_START_INNEN) {
+            Game.world().loadEnvironment("ErstesGebiet");
+
+        }
+        if (trigger == TriggerBoxEnum.TRIGGER_BOX_START_INNEN) {
+            Game.world().loadEnvironment("ErstesGebiet");
+
+        }
 
     }
 

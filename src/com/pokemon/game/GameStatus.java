@@ -7,6 +7,7 @@ public class GameStatus {
     private boolean startup;
     private GameDialogs dialogs;
     private boolean firstDialog;
+    private boolean secondDialog;
     private boolean ingame;
     private static GameStatus instance;
 
@@ -50,6 +51,14 @@ public class GameStatus {
         this.firstDialog = firstDialog;
     }
 
+    public boolean isSecondDialog() {
+        return secondDialog;
+    }
+
+    public void setSecondDialog(boolean secondDialog) {
+        this.secondDialog = secondDialog;
+    }
+
     public String getNextDialog() {
         return nextDialog;
     }
@@ -67,6 +76,14 @@ public class GameStatus {
             nextDialog = this.dialogs.getNextDialog1();
             if (nextDialog == null) {
                 setFirstDialog(false);
+                setSecondDialog(true);
+
+            }
+        }
+        if (isSecondDialog() && getTriggerBox() == TriggerBoxEnum.TRIGGER_BOX_PLACEHOLDER_1) {
+            nextDialog = this.dialogs.getNextDialog2();
+            if (nextDialog == null) {
+                setSecondDialog(false);
             }
         }
     }
@@ -82,4 +99,7 @@ public class GameStatus {
     public boolean isMovementAllowed() {
         return this.dialogs.isMovementAllowed();
     }
+
+
 }
+

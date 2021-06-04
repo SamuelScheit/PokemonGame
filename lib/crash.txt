@@ -1,18 +1,5 @@
-Mon May 31 14:25:58 CEST 2021 Main Update Loop threw an exception:
-java.lang.OutOfMemoryError: Java heap space
-	at java.awt.image.DataBufferInt.<init>(Unknown Source)
-	at java.awt.image.Raster.createPackedRaster(Unknown Source)
-	at java.awt.image.DirectColorModel.createCompatibleWritableRaster(Unknown Source)
-	at java.awt.GraphicsConfiguration.createCompatibleImage(Unknown Source)
-	at de.gurkenlabs.litiengine.util.Imaging.getCompatibleImage(Imaging.java:339)
-	at de.gurkenlabs.utiliti.renderers.GridRenderer$GridImages.createImage(GridRenderer.java:91)
-	at de.gurkenlabs.utiliti.renderers.GridRenderer$GridImages.<init>(GridRenderer.java:74)
-	at de.gurkenlabs.utiliti.renderers.GridRenderer$GridImages.<init>(GridRenderer.java:60)
-	at de.gurkenlabs.utiliti.renderers.GridRenderer.render(GridRenderer.java:38)
-	at de.gurkenlabs.utiliti.renderers.Renderers.render(Renderers.java:25)
-	at de.gurkenlabs.utiliti.components.MapComponent.render(MapComponent.java:201)
-	at de.gurkenlabs.litiengine.gui.GuiComponent.render(GuiComponent.java:733)
-	at de.gurkenlabs.utiliti.components.Editor.render(Editor.java:151)
-	at de.gurkenlabs.litiengine.graphics.RenderComponent.render(RenderComponent.java:123)
+Fri Jun 04 13:48:47 CEST 2021 Main Update Loop threw an exception:
+java.lang.NullPointerException
+	at de.gurkenlabs.litiengine.graphics.RenderComponent.render(RenderComponent.java:120)
 	at de.gurkenlabs.litiengine.GameLoop.process(GameLoop.java:92)
 	at de.gurkenlabs.litiengine.UpdateLoop.run(UpdateLoop.java:57)
