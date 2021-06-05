@@ -16,9 +16,12 @@ public class Main {
         Game.screens().add(new Pausescreen());
         Game.screens().add(new FightScreen());
         Game.screens().add(new InGameScreen());
+        Game.screens().add(new InventoryScreen());
+        Game.screens().add(new SelectPokemonScreen());
+        Game.screens().add(new HealScreen());
         GameLogic.init();
         PlayerInput.init();
-        Game.screens().display("ingame");
+        Game.screens().display(InGameScreen.NAME);
 
         Game.start();
     }

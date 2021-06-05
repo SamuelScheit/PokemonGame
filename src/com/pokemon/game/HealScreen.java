@@ -78,6 +78,7 @@ public class HealScreen extends GameScreen {
     @Override
     protected void initializeComponents() {
         super.initializeComponents();
+        inventory = GameStatus.instance().db.getInventory();
 
         Input.keyboard().onKeyTyped(e -> {
             if (e.getKeyCode() == KeyEvent.VK_ENTER || e.getKeyCode() == KeyEvent.VK_SPACE) {

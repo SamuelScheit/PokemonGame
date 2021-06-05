@@ -25,20 +25,25 @@ public class SelectPokemonScreen extends GameScreen {
         super(SelectPokemonScreen.NAME);
 
         pokemons[0] = GameStatus.instance().db.getPokemon("1");
-        pokemons[1] = GameStatus.instance().db.getPokemon("2");
-        pokemons[2] = GameStatus.instance().db.getPokemon("3");
+        pokemons[1] = GameStatus.instance().db.getPokemon("3");
+        pokemons[2] = GameStatus.instance().db.getPokemon("4");
 
         Input.keyboard().onKeyTyped(e -> {
-            if (e.getKeyCode() == KeyEvent.VK_ENTER || e.getKeyCode() == KeyEvent.VK_SPACE) {
+            if (Game.screens().current() != this) return;
+            if (e.getKeyCode() == KeyEvent.VK_ENTER) {
+                GameStatus.instance().db.insertIntoInventory(pokemons[selected].id);
+                Game.screens().display(InGameScreen.NAME);
             }
         });
 
         Input.keyboard().onKeyTyped(KeyEvent.VK_LEFT, e -> {
+            if (Game.screens().current() != this) return;
             selected--;
             if (selected < 0) selected = 2;
         });
 
         Input.keyboard().onKeyTyped(KeyEvent.VK_RIGHT, e -> {
+            if (Game.screens().current() != this) return;
             selected++;
             if (selected > 2) selected = 0;
         });
@@ -47,6 +52,8 @@ public class SelectPokemonScreen extends GameScreen {
     @Override
     public void render(Graphics2D g) {
         super.render(g);
+        g.setPaint(Color.BLACK);
+        ShapeRenderer.render(g, new Rectangle(0, 0, 10000, 1000));
 
         int x = 90;
         int i = 0;
@@ -79,6 +86,6 @@ public class SelectPokemonScreen extends GameScreen {
         super.prepare();
 
         GameStatus.instance().setIngame(false);
-        Game.world().unloadEnvironment();
+        // Game.world().unloadEnvironment();
     }
 }
