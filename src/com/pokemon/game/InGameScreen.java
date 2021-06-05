@@ -1,6 +1,8 @@
 package com.pokemon.game;
 
+import de.gurkenlabs.litiengine.Align;
 import de.gurkenlabs.litiengine.Game;
+import de.gurkenlabs.litiengine.Valign;
 import de.gurkenlabs.litiengine.environment.tilemap.xml.Text;
 import de.gurkenlabs.litiengine.graphics.ImageRenderer;
 import de.gurkenlabs.litiengine.graphics.ShapeRenderer;
@@ -24,17 +26,14 @@ public class InGameScreen extends GameScreen {
     public void render(final Graphics2D g) {
         super.render(g);
 
-        g.setFont(new Font("Arial", Font.PLAIN, 50));
+        g.setFont(new Font("Arial", Font.PLAIN, 35));
 
         g.setColor(Color.BLACK);
 
         String nextDialog = GameStatus.instance().getNextDialog();
         if (nextDialog != null) {
-            Rectangle2D rectangle = new Rectangle();
-            rectangle.setRect(300, 140, 150, 50);
-            Game.graphics().renderOutline(g, rectangle);
-            TextRenderer.render(g, nextDialog, 100, 200);
-            ImageRenderer.renderScaled(g, Resources.spritesheets().get("chatbox").getImage(), 100, 100, 0.5);
+            ImageRenderer.renderScaled(g, Resources.spritesheets().get("chatbox").getImage(), 100, 420, 1);
+            TextRenderer.renderWithLinebreaks(g, nextDialog, Align.LEFT, Valign.TOP, 160, 480, 800, 300, true);
         }
     }
 
