@@ -1,5 +1,7 @@
 package com.pokemon.game;
 
+import de.gurkenlabs.litiengine.Game;
+
 public class GameStatus {
     public DbCommands db;
     private TriggerBoxEnum triggerBox;
@@ -9,12 +11,12 @@ public class GameStatus {
     private boolean firstDialog;
     private boolean secondDialog;
     private boolean thirdDialog;
-    private boolean forthDialog;
+    private boolean forthDialog = true;
     private boolean fifthDialog;
-    private boolean sixthDialog;
-    private boolean seventhDialog;
-    private boolean eightDialog;
-    private boolean ninthDialog;
+    private boolean sixthDialog = true;
+    private boolean seventhDialog = true;
+    private boolean eightDialog =true;
+    private boolean ninthDialog = true;
     private boolean ingame;
     private static GameStatus instance;
 
@@ -156,22 +158,55 @@ public class GameStatus {
             nextDialog = this.dialogs.getNextDialog3();
             if (nextDialog == null) {
                 setThirdDialog(false);
-                setForthDialog(true);
+                setFifthDialog(true);
             }
         }
         if (isThirdDialog() && getTriggerBox() == TriggerBoxEnum.TRIGGER_BOX_G_GEBIET2_2) {
             nextDialog = this.dialogs.getNextDialog5_1();
+
+        }
+        if (isFifthDialog() && getTriggerBox() == TriggerBoxEnum.TRIGGER_BOX_G_GEBIET2_2) {
+            nextDialog = this.dialogs.getNextDialog5();
             if (nextDialog == null) {
+                setFifthDialog(false);
 
             }
         }
-        if (isForthDialog() && getTriggerBox() == TriggerBoxEnum.TRIGGER_BOX_G_GEBIET2_2) {
-            nextDialog = this.dialogs.getNextDialog5();
+
+        if (isForthDialog() && getTriggerBox() == TriggerBoxEnum.TRIGGER_BOX_G_EER_1) {
+            nextDialog = this.dialogs.getNextDialog4();
             if (nextDialog == null) {
                 setForthDialog(false);
-                setFifthDialog(true);
             }
         }
+
+        if (isSixthDialog() && getTriggerBox() == TriggerBoxEnum.TRIGGER_BOX_G_ARENA_11) {
+            nextDialog = this.dialogs.getNextDialog6();
+            if (nextDialog == null) {
+                Game.screens().display("SC");
+            }
+        }
+
+        if (isSeventhDialog() && getTriggerBox() == TriggerBoxEnum.TRIGGER_BOX_G_ARENA_12) {
+            nextDialog = this.dialogs.getNextDialog7();
+            if (nextDialog == null) {
+                Game.world().environment().getSpawnpoint("enter").spawn(Player.instance());
+            }
+        }
+        if (isEightDialog() && getTriggerBox() == TriggerBoxEnum.TRIGGER_BOX_G_ARENA_13) {
+            nextDialog = this.dialogs.getNextDialog8();
+            if (nextDialog == null) {
+                Game.world().environment().getSpawnpoint("enter").spawn(Player.instance());
+            }
+        }
+        if (isNinthDialog() && getTriggerBox() == TriggerBoxEnum.TRIGGER_BOX_G_ARENA_14) {
+            nextDialog = this.dialogs.getNextDialog9();
+            if (nextDialog == null) {
+                Game.world().environment().getSpawnpoint("enter").spawn(Player.instance());
+            }
+        }
+
+
 
 
 }
