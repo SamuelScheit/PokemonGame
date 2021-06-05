@@ -127,7 +127,7 @@ public class GameStatus {
 
     public void triggerDialog() {
 
-        if (isStartup() && getTriggerBox() == TriggerBoxEnum.NONE) {
+        if (isStartup() && getTriggerBox() == TriggerBoxEnum.TRIGGER_BOX_G_START_1) {
             nextDialog = this.dialogs.getNextIntroText();
             if (nextDialog == null) {
                 setStartup(false);
@@ -152,6 +152,27 @@ public class GameStatus {
                 setSecondDialog(false);
             }
         }
+        if (isThirdDialog() && getTriggerBox() == TriggerBoxEnum.TRIGGER_BOX_G_GEBIET2_1) {
+            nextDialog = this.dialogs.getNextDialog3();
+            if (nextDialog == null) {
+                setThirdDialog(false);
+                setForthDialog(true);
+            }
+        }
+        if (isThirdDialog() && getTriggerBox() == TriggerBoxEnum.TRIGGER_BOX_G_GEBIET2_2) {
+            nextDialog = this.dialogs.getNextDialog5_1();
+            if (nextDialog == null) {
+
+            }
+        }
+        if (isForthDialog() && getTriggerBox() == TriggerBoxEnum.TRIGGER_BOX_G_GEBIET2_2) {
+            nextDialog = this.dialogs.getNextDialog5();
+            if (nextDialog == null) {
+                setForthDialog(false);
+                setFifthDialog(true);
+            }
+        }
+
 
 }
 
