@@ -27,7 +27,7 @@ public class GameLogic {
             Game.world().camera().updateFocus();
             System.out.println("world loaded");
             // spawn the player instance on the spawn point with the name "enter"
-            Spawnpoint enter = e.getSpawnpoint("enter");
+            Spawnpoint enter = e.getSpawnpoint(GameStatus.instance().spawnpoint);
             if (enter != null) {
                 enter.spawn(Player.instance());
             }
