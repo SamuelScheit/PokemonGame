@@ -157,6 +157,14 @@ public class PokemonTriggerListener implements TriggerListener {
             Trigger trigger_g_g3_2 = Game.world().environment().getTrigger("TRIGGER_BOX_ARENA_AUSSEN");
             trigger_g_g3_2.addTriggerListener(new PokemonTriggerListener(TriggerBoxEnum.TRIGGER_BOX_ARENA_AUSSEN));
         }
+        if (trigger == TriggerBoxEnum.TRIGGER_BOX_GEBIET2_2) {
+            GameStatus.instance().spawnpoint = "enter";
+            Game.world().loadEnvironment("LaborGebietFinalBackup1");
+            Trigger trigger_g_g3_1 = Game.world().environment().getTrigger("TRIGGER_BOX_GEBIET3_1");
+            trigger_g_g3_1.addTriggerListener(new PokemonTriggerListener(TriggerBoxEnum.TRIGGER_BOX_GEBIET3_1));
+            Trigger trigger_g_g3_2 = Game.world().environment().getTrigger("TRIGGER_BOX_ARENA_AUSSEN");
+            trigger_g_g3_2.addTriggerListener(new PokemonTriggerListener(TriggerBoxEnum.TRIGGER_BOX_ARENA_AUSSEN));
+        }
 
 
     }
