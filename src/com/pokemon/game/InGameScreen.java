@@ -2,6 +2,7 @@ package com.pokemon.game;
 
 import de.gurkenlabs.litiengine.Game;
 import de.gurkenlabs.litiengine.environment.tilemap.xml.Text;
+import de.gurkenlabs.litiengine.graphics.ImageRenderer;
 import de.gurkenlabs.litiengine.graphics.ShapeRenderer;
 import de.gurkenlabs.litiengine.graphics.TextRenderer;
 import de.gurkenlabs.litiengine.gui.TextFieldComponent;
@@ -30,7 +31,7 @@ public class InGameScreen extends GameScreen {
             Rectangle2D rectangle = new Rectangle();
             rectangle.setRect(300, 140, 150, 50);
             Game.graphics().renderOutline(g, rectangle);
-            TextRenderer.render(g, nextDialog, 100, 700);
+            TextRenderer.render(g, nextDialog, 100, 500);
         }
     }
 
