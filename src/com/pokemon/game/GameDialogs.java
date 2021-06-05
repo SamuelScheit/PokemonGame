@@ -10,6 +10,7 @@ public class GameDialogs {
     private int dialog3count;
     private int dialog4count;
     private int dialog5count;
+    private int dialog5_1count;
     private int dialog6count;
     private int dialog7count;
     private int dialog8count;
@@ -32,6 +33,7 @@ public class GameDialogs {
     private static final String[] DIALOG3 = new String[]{"ASH: Hallo!", "ASH: Was machen du hier ganz alleine im Wald?", "FREMDER: Hallo!", "FREMDER: Ich bin nicht alleine ich habe meine Pokemon hier bei mir.","FREMDER: Ich habe vor sehr langer Zeit mit der Forschungen in verschiedenen Regionen über die unterschiedlichsten Pokemon begonnen.","FREMDER: Ich habe beispielsweise für alle Pokemon eine Art „Supertrank“ gebraut. Dieser Trank lässt die Pokemon nach dem Kampf sofort wieder volles Leben regenerieren!","FREMDER: Wenn deine Pokemon Schaden genommen haben, kannst du einfach zu meinem Bruder da drüben gehen und der heilt sie wieder voll", "ASH: Super vielen Dank!"};
     private static final String[] DIALOG4 = new String[]{"HERR WAGNER: Willkommen du hast also meine geheime Sammlung mit ein Paar Artefakten aus berühmten Spielen gefunden!", "HERR WAGNER: Kuck dich ruhig in Ruhe um."};
     private static final String[] DIALOG5 = new String[]{"FREMDER: Hallo, du musst schon meinen Bruder getroffen haben, der allen von seinen Tränken erzählt.", "Nun, ich habe ein paar bei mir, sag einfach bescheid, wenn du einen brauchst", ""};
+    private static final String[] DIALOG5_1 = new String[]{"FREMDER: Hallo, ich habe Tränke bei mir, die deine Pokemon heilen können","FREMDER: Falls du mehr über die Tränke erfahren willst, frag einfach meinen Bruder, der ist unten am Fluss","Ach ja, ich habe übrigens ein paar Tränke über, wenn deine Pokemon also Schaden genommen haben, kann ich sie wieder voll heilen",""};
     private static final String[] DIALOG6 = new String[]{"HERR WAGNER: Ich sehe, du hast es durch mein Labyrinth geschafft und auch etwas Kampferfahrung gesammelt ", "Ich denke, du bist bereit auch gegen mich zu kämpfen", "", "Wow, du bist echt gut geworden, seit ich dir dein erstes Pokemon gegeben hab. Herzlichen Glückwunsch zum Sieg, Ash",""};
     private static final String[] DIALOG7 = new String[]{"Stop! Du musst dir einen anderen Weg suchen, um weiterzukommen"};
     private static final String[] DIALOG8 = new String[]{"Stop! Du musst dir einen anderen Weg suchen, um weiterzukommen"};
@@ -148,6 +150,25 @@ public class GameDialogs {
             setAllowMovement(false);
         }
         if(dialog1count == 3){
+            //heal
+        }
+
+        return textString;
+
+    }
+
+    public String getNextDialog5_1() {
+        String textString;
+        if (dialog5_1count >= DIALOG5_1.length) {
+            textString = null;
+            setAllowMovement(true);
+
+        } else {
+            textString = DIALOG5_1[dialog5_1count];
+            dialog5_1count = dialog5_1count + 1;
+            setAllowMovement(false);
+        }
+        if(dialog1count == 4){
             //heal
         }
 
