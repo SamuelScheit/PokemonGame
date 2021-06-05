@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.4" tiledversion="1.4.3" orientation="orthogonal" renderorder="right-down" width="20" height="20" tilewidth="16" tileheight="16" infinite="1" nextlayerid="5" nextobjectid="1">
+<map version="1.4" tiledversion="1.4.3" orientation="orthogonal" renderorder="right-down" width="48" height="32" tilewidth="16" tileheight="16" infinite="1" nextlayerid="5" nextobjectid="1" name="ArenaInnenFinalBackup1">
  <tileset firstgid="1" source="../.tsx datein/Tileset Outside Pflanzen.tsx"/>
  <tileset firstgid="601" source="../.tsx datein/Tileset Trainer.tsx"/>
  <tileset firstgid="1001" source="../.tsx datein/Tileset Labor.tsx"/>
@@ -167,8 +167,8 @@
 142,142,142,142,142,142,142,142,142,142,142,142,142,142,142,142,
 142,142,142,142,142,142,142,142,142,142,142,142,142,142,142,142,
 142,142,142,142,142,142,142,142,142,142,142,142,142,142,142,142,
-0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
-0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,142,142,142,142,142,0,0,0,0,0,0,0,0,0,0,
+0,142,142,142,142,142,0,0,0,0,0,0,0,0,0,0,
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 </chunk>
    <chunk x="16" y="0" width="16" height="16">
@@ -271,4 +271,148 @@
 </chunk>
   </data>
  </layer>
+ <objectgroup id="0" name="default" visible="1">
+  <object id="1" type="COLLISIONBOX" x="-176" y="-144" width="16" height="352">
+   <properties>
+    <property name="collisionType" value="STATIC"/>
+   </properties>
+  </object>
+  <object id="2" type="COLLISIONBOX" x="272" y="-128" width="16" height="336">
+   <properties>
+    <property name="collisionType" value="STATIC"/>
+   </properties>
+  </object>
+  <object id="3" type="COLLISIONBOX" x="-160" y="-144" width="432" height="16">
+   <properties>
+    <property name="collisionType" value="STATIC"/>
+   </properties>
+  </object>
+  <object id="4" type="COLLISIONBOX" x="-48" y="-48" width="32" height="48">
+   <properties>
+    <property name="collisionType" value="STATIC"/>
+   </properties>
+  </object>
+  <object id="5" type="COLLISIONBOX" x="-96" y="16" width="80" height="48">
+   <properties>
+    <property name="collisionType" value="STATIC"/>
+   </properties>
+  </object>
+  <object id="6" type="COLLISIONBOX" x="-128" y="-63" width="144" height="4">
+   <properties>
+    <property name="collisionType" value="STATIC"/>
+   </properties>
+  </object>
+  <object id="7" type="COLLISIONBOX" x="96" y="-63" width="144" height="4">
+   <properties>
+    <property name="collisionType" value="STATIC"/>
+   </properties>
+  </object>
+  <object id="9" type="COLLISIONBOX" x="96" y="138" width="173" height="4">
+   <properties>
+    <property name="collisionType" value="STATIC"/>
+   </properties>
+  </object>
+  <object id="10" type="COLLISIONBOX" x="0" y="-16" width="160" height="16">
+   <properties>
+    <property name="collisionType" value="STATIC"/>
+   </properties>
+  </object>
+  <object id="11" type="COLLISIONBOX" x="16" y="0" width="144" height="48">
+   <properties>
+    <property name="collisionType" value="STATIC"/>
+   </properties>
+  </object>
+  <object id="12" type="COLLISIONBOX" x="16" y="48" width="80" height="16">
+   <properties>
+    <property name="collisionType" value="STATIC"/>
+   </properties>
+  </object>
+  <object id="13" type="COLLISIONBOX" x="0" y="64" width="112" height="48">
+   <properties>
+    <property name="collisionType" value="STATIC"/>
+   </properties>
+  </object>
+  <object id="14" type="COLLISIONBOX" x="-48" y="64" width="32" height="16">
+   <properties>
+    <property name="collisionType" value="STATIC"/>
+   </properties>
+  </object>
+  <object id="15" type="COLLISIONBOX" x="-80" y="96" width="32" height="32">
+   <properties>
+    <property name="collisionType" value="STATIC"/>
+   </properties>
+  </object>
+  <object id="16" type="COLLISIONBOX" x="176" y="64" width="48" height="32">
+   <properties>
+    <property name="collisionType" value="STATIC"/>
+   </properties>
+  </object>
+  <object id="17" type="COLLISIONBOX" x="176" y="16" width="64" height="32">
+   <properties>
+    <property name="collisionType" value="STATIC"/>
+   </properties>
+  </object>
+  <object id="18" type="COLLISIONBOX" x="240" y="-64" width="32" height="16">
+   <properties>
+    <property name="collisionType" value="STATIC"/>
+   </properties>
+  </object>
+  <object id="19" type="COLLISIONBOX" x="-160" y="-64" width="32" height="16">
+   <properties>
+    <property name="collisionType" value="STATIC"/>
+   </properties>
+  </object>
+  <object id="20" type="COLLISIONBOX" x="224" y="-16" width="16" height="16">
+   <properties>
+    <property name="collisionType" value="STATIC"/>
+   </properties>
+  </object>
+  <object id="21" type="COLLISIONBOX" x="160" y="80" width="16" height="16">
+   <properties>
+    <property name="collisionType" value="STATIC"/>
+   </properties>
+  </object>
+  <object id="22" type="COLLISIONBOX" x="-112" y="112" width="16" height="16">
+   <properties>
+    <property name="collisionType" value="STATIC"/>
+   </properties>
+  </object>
+  <object id="23" type="COLLISIONBOX" x="-160" y="208" width="176" height="16">
+   <properties>
+    <property name="collisionType" value="STATIC"/>
+   </properties>
+  </object>
+  <object id="24" type="COLLISIONBOX" x="96" y="208" width="176" height="16">
+   <properties>
+    <property name="collisionType" value="STATIC"/>
+   </properties>
+  </object>
+  <object id="25" type="COLLISIONBOX" x="0" y="240" width="112" height="16">
+   <properties>
+    <property name="collisionType" value="STATIC"/>
+   </properties>
+  </object>
+  <object id="26" type="COLLISIONBOX" x="0" y="224" width="16" height="16">
+   <properties>
+    <property name="collisionType" value="STATIC"/>
+   </properties>
+  </object>
+  <object id="27" type="COLLISIONBOX" x="96" y="224" width="16" height="16">
+   <properties>
+    <property name="collisionType" value="STATIC"/>
+   </properties>
+  </object>
+  <object id="28" type="COLLISIONBOX" x="-160" y="136" width="176" height="4">
+   <properties>
+    <property name="collisionType" value="STATIC"/>
+   </properties>
+  </object>
+  <object id="29" name="enter" type="SPAWNPOINT" x="32" y="176" width="48" height="16"/>
+  <object id="30" name="TRIGGER_BOX_ARENA_INNEN" type="TRIGGER" x="16" y="208" width="80" height="32">
+   <properties>
+    <property name="triggermessage" value="TRIGGER_BOX_ARENA_INNEN"/>
+   </properties>
+  </object>
+  <object id="31" name="TRIGGER_BOX_G_ARENA_1" type="TRIGGER" x="0" y="-128" width="112" height="41"/>
+ </objectgroup>
 </map>

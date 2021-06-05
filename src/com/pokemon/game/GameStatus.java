@@ -8,6 +8,13 @@ public class GameStatus {
     private GameDialogs dialogs;
     private boolean firstDialog;
     private boolean secondDialog;
+    private boolean thirdDialog;
+    private boolean forthDialog;
+    private boolean fifthDialog;
+    private boolean sixthDialog;
+    private boolean seventhDialog;
+    private boolean eightDialog;
+    private boolean ninthDialog;
     private boolean ingame;
     private static GameStatus instance;
 
@@ -58,6 +65,61 @@ public class GameStatus {
     public void setSecondDialog(boolean secondDialog) {
         this.secondDialog = secondDialog;
     }
+    public boolean isThirdDialog() {
+        return thirdDialog;
+    }
+
+    public void setThirdDialog(boolean thirdDialog) {
+        this.thirdDialog = thirdDialog;
+    }
+
+    public boolean isForthDialog() {
+        return forthDialog;
+    }
+
+    public void setForthDialog(boolean forthDialog) {
+        this.forthDialog = forthDialog;
+    }
+
+    public boolean isFifthDialog() {
+        return fifthDialog;
+    }
+
+    public void setFifthDialog(boolean fifthDialog) {
+        this.fifthDialog = fifthDialog;
+    }
+
+    public boolean isSixthDialog() {
+        return sixthDialog;
+    }
+
+    public void setSixthDialog(boolean sixthDialog) {
+        this.sixthDialog = sixthDialog;
+    }
+
+    public boolean isSeventhDialog() {
+        return seventhDialog;
+    }
+
+    public void setSeventhDialog(boolean seventhDialog) {
+        this.seventhDialog = seventhDialog;
+    }
+
+    public boolean isEightDialog() {
+        return eightDialog;
+    }
+
+    public void setEightDialog(boolean eightDialog) {
+        this.eightDialog = eightDialog;
+    }
+
+    public boolean isNinthDialog() {
+        return ninthDialog;
+    }
+
+    public void setNinthDialog(boolean ninthDialog) {
+        this.ninthDialog = ninthDialog;
+    }
 
     public String getNextDialog() {
         return nextDialog;
@@ -80,13 +142,19 @@ public class GameStatus {
 
             }
         }
-        if (isSecondDialog() && getTriggerBox() == TriggerBoxEnum.TRIGGER_BOX_PLACEHOLDER_1) {
+        if (isFirstDialog() && getTriggerBox() == TriggerBoxEnum.TRIGGER_BOX_G_AUSSEN_1) {
+            nextDialog = this.dialogs.getNextDialog2_1();
+        }
+
+        if (isSecondDialog() && getTriggerBox() == TriggerBoxEnum.TRIGGER_BOX_G_AUSSEN_1) {
             nextDialog = this.dialogs.getNextDialog2();
             if (nextDialog == null) {
                 setSecondDialog(false);
             }
         }
-    }
+
+}
+
 
     public TriggerBoxEnum getTriggerBox() {
         return triggerBox;
@@ -99,6 +167,7 @@ public class GameStatus {
     public boolean isMovementAllowed() {
         return this.dialogs.isMovementAllowed();
     }
+
 
 
 }
