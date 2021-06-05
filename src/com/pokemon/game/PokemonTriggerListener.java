@@ -65,38 +65,36 @@ public class PokemonTriggerListener implements TriggerListener {
         if (trigger == TriggerBoxEnum.TRIGGER_BOX_LABOR_INNEN) {
             Game.world().loadEnvironment("ErstesGebietTestFinalBackup1");
             Trigger trigger_l_g1_1 = Game.world().environment().getTrigger("TRIGGER_BOX_LABOR_AUSSEN");
-            trigger_l_g1_1.addTriggerListener(new PokemonTriggerListener(TriggerBoxEnum. TRIGGER_BOX_LABOR_AUSSEN));
+            trigger_l_g1_1.addTriggerListener(new PokemonTriggerListener(TriggerBoxEnum.TRIGGER_BOX_LABOR_AUSSEN));
             Trigger trigger_l_g1_2 = Game.world().environment().getTrigger("TRIGGER_BOX_START_AUSSEN");
-            trigger_l_g1_2.addTriggerListener(new PokemonTriggerListener(TriggerBoxEnum. TRIGGER_BOX_START_AUSSEN));
+            trigger_l_g1_2.addTriggerListener(new PokemonTriggerListener(TriggerBoxEnum.TRIGGER_BOX_START_AUSSEN));
             Trigger trigger_l_g1_3 = Game.world().environment().getTrigger("TRIGGER_BOX_GEBIET1");
             trigger_l_g1_3.addTriggerListener(new PokemonTriggerListener(TriggerBoxEnum.TRIGGER_BOX_GEBIET1));
             Trigger trigger_g_g1_1 = Game.world().environment().getTrigger("TRIGGER_BOX_G_GEBIET1_1");
             trigger_g_g1_1.addTriggerListener(new PokemonTriggerListener(TriggerBoxEnum.TRIGGER_BOX_G_AUSSEN_1));
 
 
-
         }
         if (trigger == TriggerBoxEnum.TRIGGER_BOX_START_INNEN) {
+            GameStatus.instance().spawnpoint = "enter_start";
             Game.world().loadEnvironment("ErstesGebietTestFinalBackup1");
             Trigger trigger_l_g1_1 = Game.world().environment().getTrigger("TRIGGER_BOX_LABOR_AUSSEN");
-            trigger_l_g1_1.addTriggerListener(new PokemonTriggerListener(TriggerBoxEnum. TRIGGER_BOX_LABOR_AUSSEN));
+            trigger_l_g1_1.addTriggerListener(new PokemonTriggerListener(TriggerBoxEnum.TRIGGER_BOX_LABOR_AUSSEN));
             Trigger trigger_l_g1_2 = Game.world().environment().getTrigger("TRIGGER_BOX_START_AUSSEN");
-            trigger_l_g1_2.addTriggerListener(new PokemonTriggerListener(TriggerBoxEnum. TRIGGER_BOX_START_AUSSEN));
+            trigger_l_g1_2.addTriggerListener(new PokemonTriggerListener(TriggerBoxEnum.TRIGGER_BOX_START_AUSSEN));
             Trigger trigger_l_g1_3 = Game.world().environment().getTrigger("TRIGGER_BOX_GEBIET1");
             trigger_l_g1_3.addTriggerListener(new PokemonTriggerListener(TriggerBoxEnum.TRIGGER_BOX_GEBIET1));
             Trigger trigger_g_g1_1 = Game.world().environment().getTrigger("TRIGGER_BOX_G_AUSSEN_1");
             trigger_g_g1_1.addTriggerListener(new PokemonTriggerListener(TriggerBoxEnum.TRIGGER_BOX_G_AUSSEN_1));
-
-
-
         }
 
         if (trigger == TriggerBoxEnum.TRIGGER_BOX_GEBIET2_1) {
+            GameStatus.instance().spawnpoint = "enter_gebiet2";
             Game.world().loadEnvironment("ErstesGebietTestFinalBackup1");
             Trigger trigger_l_g1_1 = Game.world().environment().getTrigger("TRIGGER_BOX_LABOR_AUSSEN");
-            trigger_l_g1_1.addTriggerListener(new PokemonTriggerListener(TriggerBoxEnum. TRIGGER_BOX_LABOR_AUSSEN));
+            trigger_l_g1_1.addTriggerListener(new PokemonTriggerListener(TriggerBoxEnum.TRIGGER_BOX_LABOR_AUSSEN));
             Trigger trigger_l_g1_2 = Game.world().environment().getTrigger("TRIGGER_BOX_START_AUSSEN");
-            trigger_l_g1_2.addTriggerListener(new PokemonTriggerListener(TriggerBoxEnum. TRIGGER_BOX_START_AUSSEN));
+            trigger_l_g1_2.addTriggerListener(new PokemonTriggerListener(TriggerBoxEnum.TRIGGER_BOX_START_AUSSEN));
             Trigger trigger_l_g1_3 = Game.world().environment().getTrigger("TRIGGER_BOX_GEBIET1");
             trigger_l_g1_3.addTriggerListener(new PokemonTriggerListener(TriggerBoxEnum.TRIGGER_BOX_GEBIET1));
             Trigger trigger_g_g1_1 = Game.world().environment().getTrigger("TRIGGER_BOX_START_AUSSEN");
@@ -107,6 +105,7 @@ public class PokemonTriggerListener implements TriggerListener {
 
         //Gebiet 2 laden
         if (trigger == TriggerBoxEnum.TRIGGER_BOX_EER_INNEN) {
+            GameStatus.instance().spawnpoint = "enter1";
             Game.world().loadEnvironment("ZweitesGebietFinalBackup1");
             Trigger trigger_g_g2_1 = Game.world().environment().getTrigger("TRIGGER_BOX_G_GEBIET2_1");
             trigger_g_g2_1.addTriggerListener(new PokemonTriggerListener(TriggerBoxEnum.TRIGGER_BOX_G_GEBIET2_1));
@@ -121,6 +120,7 @@ public class PokemonTriggerListener implements TriggerListener {
         }
 
         if (trigger == TriggerBoxEnum.TRIGGER_BOX_GEBIET3_1) {
+            GameStatus.instance().spawnpoint = "enter1";
             Game.world().loadEnvironment("ZweitesGebietFinalBackup1");
             Trigger trigger_g_g2_1 = Game.world().environment().getTrigger("TRIGGER_BOX_G_GEBIET2_1");
             trigger_g_g2_1.addTriggerListener(new PokemonTriggerListener(TriggerBoxEnum.TRIGGER_BOX_G_GEBIET2_1));
@@ -135,6 +135,7 @@ public class PokemonTriggerListener implements TriggerListener {
         }
 
         if (trigger == TriggerBoxEnum.TRIGGER_BOX_GEBIET1) {
+            GameStatus.instance().spawnpoint = "enter1";
             Game.world().loadEnvironment("ZweitesGebietFinalBackup1");
             Trigger trigger_g_g2_1 = Game.world().environment().getTrigger("TRIGGER_BOX_G_GEBIET2_1");
             trigger_g_g2_1.addTriggerListener(new PokemonTriggerListener(TriggerBoxEnum.TRIGGER_BOX_G_GEBIET2_1));
@@ -150,6 +151,7 @@ public class PokemonTriggerListener implements TriggerListener {
 
         //Gebiet 3 laden
         if (trigger == TriggerBoxEnum.TRIGGER_BOX_ARENA_INNEN) {
+            GameStatus.instance().spawnpoint = "enter";
             Game.world().loadEnvironment("LaborGebietFinalBackup1");
             Trigger trigger_g_g3_1 = Game.world().environment().getTrigger("TRIGGER_BOX_GEBIET3_1");
             trigger_g_g3_1.addTriggerListener(new PokemonTriggerListener(TriggerBoxEnum.TRIGGER_BOX_GEBIET3_1));

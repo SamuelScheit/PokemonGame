@@ -19,6 +19,7 @@ public class GameStatus {
     private boolean ninthDialog = true;
     private boolean ingame;
     private static GameStatus instance;
+    public String spawnpoint = "enter";
 
     public GameStatus() {
         this.startup = true;
@@ -67,6 +68,7 @@ public class GameStatus {
     public void setSecondDialog(boolean secondDialog) {
         this.secondDialog = secondDialog;
     }
+
     public boolean isThirdDialog() {
         return thirdDialog;
     }
@@ -209,7 +211,7 @@ public class GameStatus {
 
 
 
-}
+    }
 
 
     public TriggerBoxEnum getTriggerBox() {
@@ -223,7 +225,6 @@ public class GameStatus {
     public boolean isMovementAllowed() {
         return this.dialogs.isMovementAllowed();
     }
-
 
 
 }

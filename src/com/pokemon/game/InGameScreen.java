@@ -7,6 +7,8 @@ import de.gurkenlabs.litiengine.graphics.ShapeRenderer;
 import de.gurkenlabs.litiengine.graphics.TextRenderer;
 import de.gurkenlabs.litiengine.gui.TextFieldComponent;
 import de.gurkenlabs.litiengine.gui.screens.GameScreen;
+import de.gurkenlabs.litiengine.resources.Resource;
+import de.gurkenlabs.litiengine.resources.Resources;
 
 import java.awt.*;
 import java.awt.geom.Rectangle2D;
@@ -31,7 +33,8 @@ public class InGameScreen extends GameScreen {
             Rectangle2D rectangle = new Rectangle();
             rectangle.setRect(300, 140, 150, 50);
             Game.graphics().renderOutline(g, rectangle);
-            TextRenderer.render(g, nextDialog, 100, 500);
+            TextRenderer.render(g, nextDialog, 100, 200);
+            ImageRenderer.renderScaled(g, Resources.spritesheets().get("chatbox").getImage(), 100, 100, 0.5);
         }
     }
 
