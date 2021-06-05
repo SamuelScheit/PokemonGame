@@ -27,7 +27,7 @@ public class PokemonTriggerListener implements TriggerListener {
             trigger_l_l_1.addTriggerListener(new PokemonTriggerListener(TriggerBoxEnum.TRIGGER_BOX_LABOR_INNEN));
             Trigger trigger_g_l_1 = Game.world().environment().getTrigger("TRIGGER_BOX_G_LABOR_1");
             trigger_g_l_1.addTriggerListener(new PokemonTriggerListener(TriggerBoxEnum.TRIGGER_BOX_G_LABOR_1));
-            Trigger trigger_g_l_12 = Game.world().environment().getTrigger("TRIGGER_BOX_G_LABOR_12");
+
 
         }
 
