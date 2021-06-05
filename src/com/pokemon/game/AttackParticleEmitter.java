@@ -2,18 +2,14 @@ package com.pokemon.game;
 
 import de.gurkenlabs.litiengine.Align;
 import de.gurkenlabs.litiengine.Game;
-import de.gurkenlabs.litiengine.Valign;
 import de.gurkenlabs.litiengine.entities.EmitterInfo;
 import de.gurkenlabs.litiengine.entities.EntityInfo;
 import de.gurkenlabs.litiengine.entities.IEntity;
 import de.gurkenlabs.litiengine.graphics.RenderType;
-import de.gurkenlabs.litiengine.graphics.emitters.Emitter;
 import de.gurkenlabs.litiengine.graphics.emitters.EntityEmitter;
-import de.gurkenlabs.litiengine.graphics.emitters.particles.LineParticle;
 import de.gurkenlabs.litiengine.graphics.emitters.particles.Particle;
 import de.gurkenlabs.litiengine.graphics.emitters.particles.RectangleParticle;
 import de.gurkenlabs.litiengine.physics.Collision;
-import de.gurkenlabs.litiengine.util.ColorHelper;
 
 import java.awt.*;
 

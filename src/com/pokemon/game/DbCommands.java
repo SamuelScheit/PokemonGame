@@ -67,7 +67,7 @@ public class DbCommands {
         return null;
     }
 
-  public Pokemon getPokemon(String id) {
+    public Pokemon getPokemon(String id) {
         try {
             String sql = "SELECT * FROM POKEMON WHERE Pokemon_ID = ?";
             PreparedStatement ps = con.prepareStatement(sql);
@@ -76,8 +76,11 @@ public class DbCommands {
             if (rs == null) return null;
 
             String pokemonName = rs.getString("Pokemon_Name");
-            byte[] spriteBinary = rs.getBytes("Sprite");
-            Spritesheet spritesheet = new Spritesheet(ImageIO.read(new ByteArrayInputStream(spriteBinary)), pokemonName, 32, 32);
+
+            Spritesheet spritesheet = new Spritesheet(ImageIO.read(new ByteArrayInputStream(rs.getBytes("Sprite"))), pokemonName, 32, 32);
+            Spritesheet spriteAttack = new Spritesheet(ImageIO.read(new ByteArrayInputStream(rs.getBytes("Sprite_Attack"))), pokemonName, 32, 32);
+            Spritesheet spriteDamage = new Spritesheet(ImageIO.read(new ByteArrayInputStream(rs.getBytes("Sprite_Damage"))), pokemonName, 32, 32);
+
             Resources.spritesheets().add(pokemonName, spritesheet);
 
             Pokemon pokemon = new Pokemon(
@@ -86,8 +89,9 @@ public class DbCommands {
                     rs.getInt("HP"),
                     this.getAttack(rs.getInt("Attack_1")),
                     this.getAttack(rs.getInt("Attack_2")),
-                    spritesheet
-
+                    spritesheet,
+                    spriteAttack,
+                    spriteDamage
             );
 
             rs.close();
@@ -183,7 +187,7 @@ public class DbCommands {
         ResultSet rs = null;
 
         try {
-            String sql = "SELECT Attack_Name, Attack_DMG, Sprite FROM ATTACKS WHERE Attack_ID = ?";
+            String sql = "SELECT Attack_Name, Attack_DMG FROM ATTACKS WHERE Attack_ID = ?";
 
             ps = con.prepareStatement(sql);
             ps.setInt(1, id);
@@ -192,21 +196,13 @@ public class DbCommands {
 
             String attackName = rs.getString("Attack_Name");
             int attackDMG = rs.getInt("Attack_DMG");
-            try {
-                byte[] spriteBinary = rs.getBytes("Sprite");
-                spritesheet = new Spritesheet(ImageIO.read(new ByteArrayInputStream(spriteBinary)), attackName, 32, 32);
-                Resources.spritesheets().add(attackName, spritesheet);
-                System.out.println(spritesheet);
-            } catch (Exception e) {
-            }
 
             ps.close();
             rs.close();
 
             System.out.println(attackName);
             System.out.println(attackDMG);
-            System.out.println(spritesheet);
-            return new Attack(id, attackName, attackDMG, spritesheet);
+            return new Attack(id, attackName, attackDMG);
         } catch (Exception e) {
             System.out.println(e.toString());
         }
