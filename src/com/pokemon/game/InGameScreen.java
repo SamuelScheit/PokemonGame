@@ -40,8 +40,6 @@ public class InGameScreen extends GameScreen {
         GameStatus.instance().setIngame(true);
     }
 
-    @Override
-    protected void initializeComponents() {
-        Game.world().loadEnvironment("ErstesGebiet");
-    }
+
+
 }
