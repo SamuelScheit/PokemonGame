@@ -9,7 +9,7 @@ import de.gurkenlabs.litiengine.physics.MovementController;
 import java.awt.event.KeyEvent;
 
 @EntityInfo(width = 16, height = 32)
-@MovementInfo(velocity = 70)
+@MovementInfo(velocity = 100)
 @CollisionInfo(collisionBoxWidth = 16, collisionBoxHeight = 16, collision = true)
 public class Player extends Creature implements IUpdateable {
 
