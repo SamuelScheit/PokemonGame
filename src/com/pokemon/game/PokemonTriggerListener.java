@@ -17,7 +17,7 @@ public class PokemonTriggerListener implements TriggerListener {
 
     @Override
     public void activated(TriggerEvent event) {
-        GameStatus.instance().triggerDialog();
+
         instance().setTriggerBox(trigger);
         System.out.println("activated " + trigger);
         //Gebiete laden von Außen + trigger innen laden
@@ -156,6 +156,7 @@ public class PokemonTriggerListener implements TriggerListener {
             Trigger trigger_g_g3_2 = Game.world().environment().getTrigger("TRIGGER_BOX_ARENA_AUSSEN");
             trigger_g_g3_2.addTriggerListener(new PokemonTriggerListener(TriggerBoxEnum.TRIGGER_BOX_ARENA_AUSSEN));
         }
+        GameStatus.instance().triggerDialog();
 
 
     }
