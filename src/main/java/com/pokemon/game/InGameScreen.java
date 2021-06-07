@@ -37,6 +37,4 @@ public class InGameScreen extends GameScreen {
         GameStatus.instance().setIngame(true);
     }
 
-
-
 }

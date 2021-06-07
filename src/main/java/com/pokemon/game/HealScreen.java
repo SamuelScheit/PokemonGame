@@ -113,7 +113,6 @@ public class HealScreen extends GameScreen {
         inventory = GameStatus.instance().db.getInventory();
 
         GameStatus.instance().setIngame(false);
-        Game.world().unloadEnvironment();
     }
 
     public void suspend() {
