@@ -5,7 +5,6 @@ import java.awt.Color;
 import java.awt.event.KeyEvent;
 import java.util.List;
 import java.util.concurrent.CopyOnWriteArrayList;
-import java.util.concurrent.atomic.AtomicInteger;
 import java.util.function.Consumer;
 
 import de.gurkenlabs.litiengine.Game;
@@ -14,7 +13,6 @@ import de.gurkenlabs.litiengine.gui.ImageScaleMode;
 import de.gurkenlabs.litiengine.gui.Menu;
 import de.gurkenlabs.litiengine.input.Input;
 import de.gurkenlabs.litiengine.resources.Resources;
-import de.gurkenlabs.litiengine.sound.Sound;
 
 public class KeyboardMenu extends Menu {
     public static final Color BUTTON_RED = new Color(140, 16, 16, 200);

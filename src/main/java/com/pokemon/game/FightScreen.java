@@ -4,9 +4,6 @@ import de.gurkenlabs.litiengine.Game;
 import de.gurkenlabs.litiengine.graphics.ImageRenderer;
 import de.gurkenlabs.litiengine.graphics.ShapeRenderer;
 import de.gurkenlabs.litiengine.graphics.TextRenderer;
-import de.gurkenlabs.litiengine.graphics.emitters.particles.LineParticle;
-import de.gurkenlabs.litiengine.graphics.emitters.particles.Particle;
-import de.gurkenlabs.litiengine.gui.GuiComponent;
 import de.gurkenlabs.litiengine.gui.ImageComponent;
 import de.gurkenlabs.litiengine.gui.screens.GameScreen;
 import de.gurkenlabs.litiengine.resources.Resources;
@@ -15,9 +12,7 @@ import java.awt.*;
 import java.awt.geom.Point2D;
 import java.awt.geom.RoundRectangle2D;
 import java.awt.image.BufferedImage;
-import java.io.IOException;
 import java.util.LinkedList;
-import java.util.concurrent.TimeUnit;
 
 public class FightScreen extends GameScreen {
     ImageComponent infobackground1;
@@ -146,7 +141,7 @@ public class FightScreen extends GameScreen {
         attackbuttons.add(attack1);
         attackbuttons.add(attack2);
 
-        for (var button : attackbuttons) {
+        for (ImageComponent button : attackbuttons) {
             button.setFont(new Font("Arial", Font.PLAIN, 35));
             button.getAppearance().setTransparentBackground(false);
             button.getAppearance().setBackgroundColor1(new Color(61, 61, 61));
@@ -164,11 +159,11 @@ public class FightScreen extends GameScreen {
     }
 
     private void initEvents() {
-        for (var button : attackbuttons) {
+        for (ImageComponent button : attackbuttons) {
             button.onClicked(e -> {
                 System.out.println(button);
 
-                for (var b : attackbuttons) {
+                for (ImageComponent b : attackbuttons) {
                     b.setEnabled(false);
                 }
                 int i = attackbuttons.indexOf(button);
@@ -196,7 +191,7 @@ public class FightScreen extends GameScreen {
             attackedPokemon.HP = Math.max(attackedPokemon.HP - attack.damage, 0);
             GameStatus.instance().db.updateHP(attackedPokemon.id, attackedPokemon.HP);
 
-            Game.loop().perform(1500, () -> {
+            Game.loop().perform(250, () -> {
 
                 attack = null;
                 if (attackedPokemon.HP <= 0) return;
@@ -204,13 +199,13 @@ public class FightScreen extends GameScreen {
                     turn = pokemon2;
                 } else {
                     turn = pokemon1;
-                    for (var b : attackbuttons) {
+                    for (ImageComponent b : attackbuttons) {
                         b.setEnabled(true);
                     }
                 }
             });
 
-            Game.loop().perform(3000, () -> {
+            Game.loop().perform(500, () -> {
                 if (attackedPokemon.HP <= 0) {
                     Game.screens().display(InGameScreen.NAME);
                     return;

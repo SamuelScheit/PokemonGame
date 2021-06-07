@@ -3,7 +3,6 @@ package com.pokemon.game;
 import de.gurkenlabs.litiengine.Game;
 import de.gurkenlabs.litiengine.resources.Resources;
 
-import javax.swing.*;
 import java.io.IOException;
 
 public class Main {

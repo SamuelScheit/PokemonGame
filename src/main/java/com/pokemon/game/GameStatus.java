@@ -15,7 +15,7 @@ public class GameStatus {
     private boolean fifthDialog;
     private boolean sixthDialog = true;
     private boolean seventhDialog = true;
-    private boolean eightDialog =true;
+    private boolean eightDialog = true;
     private boolean ninthDialog = true;
     private boolean ingame;
     private static GameStatus instance;
@@ -27,6 +27,12 @@ public class GameStatus {
         this.firstDialog = false;
         this.ingame = false;
         db = new DbCommands();
+
+        db.updateHP(1, 100);
+        db.updateHP(2, 100);
+        db.updateHP(3, 100);
+        db.updateHP(4, 100);
+        db.updateHP(5, 100);
     }
 
     public static GameStatus instance() {

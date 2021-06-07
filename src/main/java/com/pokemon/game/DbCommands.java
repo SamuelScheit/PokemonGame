@@ -1,7 +1,6 @@
 package com.pokemon.game;
 
 import de.gurkenlabs.litiengine.graphics.Spritesheet;
-import de.gurkenlabs.litiengine.resources.Resource;
 import de.gurkenlabs.litiengine.resources.Resources;
 
 import javax.imageio.ImageIO;

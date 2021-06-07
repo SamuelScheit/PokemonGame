@@ -1,10 +1,7 @@
 package com.pokemon.game;
 
-import de.gurkenlabs.litiengine.Game;
-import de.gurkenlabs.litiengine.environment.tilemap.IMapImage;
 import de.gurkenlabs.litiengine.graphics.TextRenderer;
 import de.gurkenlabs.litiengine.gui.screens.GameScreen;
-import de.gurkenlabs.litiengine.gui.screens.Resolution;
 
 import javax.swing.*;
 import java.awt.*;

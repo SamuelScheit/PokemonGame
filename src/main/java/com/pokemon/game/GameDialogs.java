@@ -146,7 +146,7 @@ public class GameDialogs {
             setAllowMovement(false);
         }
         if (dialog1count == 3) {
-            //heal
+            Game.screens().display(HealScreen.NAME);
         }
 
         return textString;
@@ -163,7 +163,7 @@ public class GameDialogs {
             setAllowMovement(false);
         }
         if (dialog1count == 4) {
-            //heal
+            Game.screens().display(HealScreen.NAME);
         }
 
         return textString;
@@ -180,7 +180,11 @@ public class GameDialogs {
             setAllowMovement(false);
         }
         if (dialog1count == 3) {
-            //kampf
+            System.out.println("fight!");
+            FightScreen screen = (FightScreen) Game.screens().get(FightScreen.NAME);
+            screen.pokemon1 = Player.instance().inventory.get(0);
+            screen.pokemon2 = GameStatus.instance().db.getPokemon("5");
+            Game.screens().display(FightScreen.NAME);
         }
 
         return textString;
