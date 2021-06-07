@@ -13,8 +13,6 @@ import java.awt.event.KeyEvent;
 import java.awt.geom.Ellipse2D;
 import java.awt.image.BufferedImage;
 import java.awt.image.ColorConvertOp;
-import java.util.ArrayList;
-import java.util.List;
 
 public class SelectPokemonScreen extends GameScreen {
     Pokemon[] pokemons = new Pokemon[3];

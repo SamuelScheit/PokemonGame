@@ -1,7 +1,6 @@
 package com.pokemon.game;
 
 import de.gurkenlabs.litiengine.Game;
-import de.gurkenlabs.litiengine.entities.Trigger;
 import de.gurkenlabs.litiengine.entities.TriggerEvent;
 import de.gurkenlabs.litiengine.entities.TriggerListener;
 

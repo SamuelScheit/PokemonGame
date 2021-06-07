@@ -1,11 +1,7 @@
 package com.pokemon.game;
 
-import de.gurkenlabs.litiengine.Align;
 import de.gurkenlabs.litiengine.Game;
-import de.gurkenlabs.litiengine.Valign;
 import de.gurkenlabs.litiengine.gui.ImageComponent;
-import de.gurkenlabs.litiengine.gui.ImageScaleMode;
-import de.gurkenlabs.litiengine.gui.Menu;
 import de.gurkenlabs.litiengine.gui.screens.GameScreen;
 import de.gurkenlabs.litiengine.gui.screens.Screen;
 import de.gurkenlabs.litiengine.input.Input;

@@ -3,7 +3,6 @@ package com.pokemon.game;
 import de.gurkenlabs.litiengine.gui.screens.GameScreen;
 
 import java.awt.*;
-import java.util.ArrayList;
 import java.util.LinkedList;
 
 public class InventoryScreen extends GameScreen {

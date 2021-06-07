@@ -1,6 +1,5 @@
 package com.pokemon.game;
 
-import de.gurkenlabs.litiengine.Game;
 import de.gurkenlabs.litiengine.GameListener;
 
 public class Listener implements GameListener {

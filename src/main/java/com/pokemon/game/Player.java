@@ -4,7 +4,7 @@ import de.gurkenlabs.litiengine.IUpdateable;
 import de.gurkenlabs.litiengine.entities.*;
 import de.gurkenlabs.litiengine.input.KeyboardEntityController;
 import de.gurkenlabs.litiengine.physics.IMovementController;
-import de.gurkenlabs.litiengine.physics.MovementController;
+
 import java.awt.event.KeyEvent;
 import java.util.ArrayList;
 
