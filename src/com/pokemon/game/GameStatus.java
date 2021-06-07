@@ -10,7 +10,7 @@ public class GameStatus {
     private GameDialogs dialogs;
     private boolean firstDialog;
     private boolean secondDialog;
-    private boolean thirdDialog;
+    private boolean thirdDialog = true;
     private boolean forthDialog = true;
     private boolean fifthDialog;
     private boolean sixthDialog = true;
@@ -154,21 +154,19 @@ public class GameStatus {
                 setSecondDialog(false);
             }
         }
-        if (isThirdDialog() && getTriggerBox() == TriggerBoxEnum.TRIGGER_BOX_G_GEBIET2_1) {
+        if (isThirdDialog() && getTriggerBox() == TriggerBoxEnum.TRIGGER_BOX_G_GEBIET2_2) {
             nextDialog = this.dialogs.getNextDialog3();
             if (nextDialog == null) {
                 setThirdDialog(false);
                 setFifthDialog(true);
             }
         }
-        if (isThirdDialog() && getTriggerBox() == TriggerBoxEnum.TRIGGER_BOX_G_GEBIET2_2) {
+        if (isThirdDialog() && getTriggerBox() == TriggerBoxEnum.TRIGGER_BOX_G_GEBIET2_1) {
             nextDialog = this.dialogs.getNextDialog5_1();
         }
-        if (isFifthDialog() && getTriggerBox() == TriggerBoxEnum.TRIGGER_BOX_G_GEBIET2_2) {
+        if (isFifthDialog() && getTriggerBox() == TriggerBoxEnum.TRIGGER_BOX_G_GEBIET2_1) {
             nextDialog = this.dialogs.getNextDialog5();
-            if (nextDialog == null) {
-                setFifthDialog(false);
-            }
+
         }
 
         if (isForthDialog() && getTriggerBox() == TriggerBoxEnum.TRIGGER_BOX_G_EER_1) {
