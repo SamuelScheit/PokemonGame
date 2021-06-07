@@ -130,7 +130,6 @@ public class GameStatus {
     }
 
     public void triggerDialog() {
-
         if (isStartup() && getTriggerBox() == TriggerBoxEnum.TRIGGER_BOX_G_START_1) {
             nextDialog = this.dialogs.getNextIntroText();
             if (nextDialog == null) {
@@ -143,7 +142,6 @@ public class GameStatus {
             if (nextDialog == null) {
                 setFirstDialog(false);
                 setSecondDialog(true);
-
             }
         }
         if (isFirstDialog() && getTriggerBox() == TriggerBoxEnum.TRIGGER_BOX_G_AUSSEN_1) {
@@ -165,13 +163,11 @@ public class GameStatus {
         }
         if (isThirdDialog() && getTriggerBox() == TriggerBoxEnum.TRIGGER_BOX_G_GEBIET2_2) {
             nextDialog = this.dialogs.getNextDialog5_1();
-
         }
         if (isFifthDialog() && getTriggerBox() == TriggerBoxEnum.TRIGGER_BOX_G_GEBIET2_2) {
             nextDialog = this.dialogs.getNextDialog5();
             if (nextDialog == null) {
                 setFifthDialog(false);
-
             }
         }
 
@@ -207,12 +203,7 @@ public class GameStatus {
                 Game.world().environment().getSpawnpoint("enter").spawn(Player.instance());
             }
         }
-
-
-
-
     }
-
 
     public TriggerBoxEnum getTriggerBox() {
         return triggerBox;
@@ -225,7 +216,5 @@ public class GameStatus {
     public boolean isMovementAllowed() {
         return this.dialogs.isMovementAllowed();
     }
-
-
 }
 

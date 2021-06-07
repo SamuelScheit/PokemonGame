@@ -3,6 +3,7 @@ package com.pokemon.game;
 import de.gurkenlabs.litiengine.Game;
 import de.gurkenlabs.litiengine.graphics.ImageRenderer;
 import de.gurkenlabs.litiengine.graphics.ShapeRenderer;
+import de.gurkenlabs.litiengine.graphics.TextRenderer;
 import de.gurkenlabs.litiengine.gui.screens.GameScreen;
 import de.gurkenlabs.litiengine.input.Input;
 
@@ -32,6 +33,7 @@ public class SelectPokemonScreen extends GameScreen {
             if (Game.screens().current() != this) return;
             if (e.getKeyCode() == KeyEvent.VK_ENTER) {
                 GameStatus.instance().db.insertIntoInventory(pokemons[selected].id);
+                Player.instance().inventory = GameStatus.instance().db.getInventory();
                 Game.screens().display(InGameScreen.NAME);
             }
         });
@@ -52,8 +54,13 @@ public class SelectPokemonScreen extends GameScreen {
     @Override
     public void render(Graphics2D g) {
         super.render(g);
+        Font arial = new Font("Arial", Font.PLAIN, 40);
+        g.setFont(arial);
         g.setPaint(Color.BLACK);
         ShapeRenderer.render(g, new Rectangle(0, 0, 10000, 1000));
+
+        g.setPaint(Color.WHITE);
+        TextRenderer.render(g, "Wähle dein Pokemon mit Enter aus:", 200, 150);
 
         int x = 90;
         int i = 0;
@@ -69,6 +76,9 @@ public class SelectPokemonScreen extends GameScreen {
                 image = new ColorConvertOp(ColorSpace.getInstance(ColorSpace.CS_GRAY), null).filter(image, null);
             }
             ImageRenderer.renderScaled(g, image, x, 400, 7);
+            if (selected == i) g.setPaint(Color.WHITE);
+            else g.setPaint(Color.GRAY);
+            TextRenderer.render(g, pokemon.name, x + 50, 300);
 
             x += 360;
             i++;

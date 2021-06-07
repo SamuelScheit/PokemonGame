@@ -20,26 +20,25 @@ public class GameLogic {
         Game.graphics().setBaseRenderScale(4.001f);
         ((JFrame) Game.window().getHostControl()).setResizable(false);
         //GameStatus.instance().db.insertAttack(1, "Glut", 10);
+        PokemonTriggerListener listener = new PokemonTriggerListener();
 
         // Game.world().setGravity(120);
 
         Game.world().onLoaded(e -> {
             Game.world().camera().updateFocus();
-            System.out.println("world loaded");
+            System.out.println("world loaded: " + e.getMap().getName());
             // spawn the player instance on the spawn point with the name "enter"
             Spawnpoint enter = e.getSpawnpoint(GameStatus.instance().spawnpoint);
             if (enter != null) {
                 enter.spawn(Player.instance());
             }
+
+            for (Trigger t : Game.world().environment().getTriggers()) {
+                t.removeTriggerListener(listener);
+                t.addTriggerListener(listener);
+            }
         });
 
         Game.world().loadEnvironment("StarterhausInnen");
-        Trigger trigger_l_s_1 = Game.world().environment().getTrigger("TRIGGER_BOX_START_INNEN");
-        trigger_l_s_1.addTriggerListener(new PokemonTriggerListener(TriggerBoxEnum.TRIGGER_BOX_START_INNEN));
-        Trigger trigger_g_s_1 = Game.world().environment().getTrigger("TRIGGER_BOX_G_START_1");
-        trigger_g_s_1.addTriggerListener(new PokemonTriggerListener(TriggerBoxEnum.TRIGGER_BOX_G_START_1));
-
     }
-
-
 }

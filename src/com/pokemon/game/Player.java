@@ -5,16 +5,15 @@ import de.gurkenlabs.litiengine.entities.*;
 import de.gurkenlabs.litiengine.input.KeyboardEntityController;
 import de.gurkenlabs.litiengine.physics.IMovementController;
 import de.gurkenlabs.litiengine.physics.MovementController;
-
 import java.awt.event.KeyEvent;
+import java.util.ArrayList;
 
 @EntityInfo(width = 16, height = 32)
-@MovementInfo(velocity = 70)
+@MovementInfo(velocity = 350)
 @CollisionInfo(collisionBoxWidth = 16, collisionBoxHeight = 16, collision = true)
 public class Player extends Creature implements IUpdateable {
-
     private static Player instance;
-
+    public ArrayList<Pokemon> inventory;
 
     public static Player instance() {
         if (instance == null) {
@@ -36,8 +35,8 @@ public class Player extends Creature implements IUpdateable {
         movementController.onMovementCheck(e -> GameStatus.instance().isIngame() && GameStatus.instance().isMovementAllowed());
 
         this.setController(IMovementController.class, movementController);
+        inventory = GameStatus.instance().db.getInventory();
     }
-
 
     @Override
     public void update() {

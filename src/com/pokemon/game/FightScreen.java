@@ -41,8 +41,6 @@ public class FightScreen extends GameScreen {
 
         g.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
 
-        // ImageRenderer.renderScaled(g, background, 0, 0, 4);
-
         Font font = new Font("Impact", Font.PLAIN, 24);
         g.setFont(font);
 
@@ -85,8 +83,8 @@ public class FightScreen extends GameScreen {
         TextRenderer.render(g, "HP", 935, 485);
 
         // lower background
-        // g.setPaint(greyGradient);
-        // ShapeRenderer.render(g, new Rectangle(0, 550, 1100, 500));
+//        g.setPaint(greyGradient);
+//        ShapeRenderer.render(g, new Rectangle(0, 550, 1100, 500));
 
         // text box
         g.setColor(Color.WHITE);
@@ -107,28 +105,20 @@ public class FightScreen extends GameScreen {
                 text = turn.name + " ist am Zug";
             }
         }
+        if (pokemon2.HP <= 0) {
+            text = "Du hast gewonnen!";
+        }
+        if (pokemon1.HP <= 0) {
+            text = "Du hast verloren!";
+        }
 
         TextRenderer.renderWithLinebreaks(g, text, 40, 600, 450, true);
-
-        /*
-        g.setColor(Color.RED);
-        ShapeRenderer.render(g, new RoundRectangle2D.Double(580, 570, 200, 50, 20, 20));
-
-        g.setColor(Color.BLUE);
-        ShapeRenderer.render(g, new RoundRectangle2D.Double(800, 570, 200, 50, 20, 20));
-
-        g.setColor(Color.GREEN);
-        ShapeRenderer.render(g, new RoundRectangle2D.Double(800, 650, 200, 50, 20, 20));
-
-        g.setColor(Color.YELLOW);
-        ShapeRenderer.render(g, new RoundRectangle2D.Double(580, 650, 200, 50, 20, 20));
-        */
 
         BufferedImage s1 = attack != null ? (turn == pokemon1 ? pokemon1.spriteAttack.getImage() : pokemon1.spriteDamage.getImage()) : pokemon1.sprite.getImage();
         BufferedImage s2 = attack != null ? (turn == pokemon2 ? pokemon2.spriteAttack.getImage() : pokemon2.spriteDamage.getImage()) : pokemon2.sprite.getImage();
 
         ImageRenderer.renderScaled(g, s1, 80, 340, 7);
-        ImageRenderer.renderScaled(g, s2, 730, 120, 7);
+        ImageRenderer.renderScaled(g, s2, 690, 100, 7);
 
         if (attack != null && particles != null) {
             particles.createNewParticle().render(g, new Point2D.Double(300, 300));
@@ -141,6 +131,14 @@ public class FightScreen extends GameScreen {
 
         infobackground1 = new ImageComponent(0, 0, 1100, 550);
         infobackground1.setSpriteSheet(Resources.spritesheets().get("battlescreen"));
+
+
+        ImageComponent background = new ImageComponent(0, 550, 1100, 500);
+        background.getAppearance().setBackgroundColor1(new Color(112, 112, 112));
+        background.getAppearance().setBackgroundColor2(new Color(56, 56, 56));
+        background.getAppearance().setTransparentBackground(false);
+        background.onHovered((event) -> background.setHovered(false));
+        this.getComponents().add(background);
 
         ImageComponent attack1 = new ImageComponent(580, 600, 200, 50);
         ImageComponent attack2 = new ImageComponent(800, 600, 200, 50);
@@ -199,9 +197,9 @@ public class FightScreen extends GameScreen {
             GameStatus.instance().db.updateHP(attackedPokemon.id, attackedPokemon.HP);
 
             Game.loop().perform(1500, () -> {
-//                Game.world().camera().setFocus(0, 0);
 
                 attack = null;
+                if (attackedPokemon.HP <= 0) return;
                 if (turn == pokemon1) {
                     turn = pokemon2;
                 } else {
@@ -213,6 +211,11 @@ public class FightScreen extends GameScreen {
             });
 
             Game.loop().perform(3000, () -> {
+                if (attackedPokemon.HP <= 0) {
+                    Game.screens().display(InGameScreen.NAME);
+                    return;
+                }
+
                 if (turn == pokemon2) {
                     if (Math.random() > 0.5) attack = turn.attack1;
                     else attack = turn.attack2;
@@ -239,15 +242,12 @@ public class FightScreen extends GameScreen {
         }
 
         GameStatus.instance().setIngame(false);
-        Game.world().unloadEnvironment();
         System.out.println("show fight screen");
 
-        pokemon1 = GameStatus.instance().db.getPokemon("1");
-        pokemon2 = GameStatus.instance().db.getPokemon("2");
+        turn = pokemon1;
 
         attackbuttons.get(0).setText(pokemon1.attack1.name);
         System.out.println(pokemon1.attack1.name);
         attackbuttons.get(1).setText(pokemon1.attack2.name);
-
     }
 }
