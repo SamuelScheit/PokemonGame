@@ -28,7 +28,7 @@ public class GameDialogs {
 
     private static final String[] INTRO = new String[]{"ASH: Guten Morgen!", "MUTTER: Alles gute zu deinem 10ten Geburtstag.", "MUTTER: Bist du bereit dein erster Pokemon abzuholen und auf die große Reise zu gehen?", "ASH: JAA!"};
     private static final String[] DIALOG1 = new String[]{"ASH: Hallo Herr Wagner, ich bin bereit Pokemon Trainer zu werden!", "HERR WAGNER: Hallo Ash alles gute zu deinem 10ten Geburtstag", "ASH: Vielen Dank!", "ASH: Welche Pokemon habe ich zur Wahl ", "HERR WAGNER: Du hast die Wahl zwischen diesen drei Starterpokemon:", "ASH: Schwere Entscheidung", "HERR WAGNER: Wähle weiße", "HERR WAGNER: Eine sehr gute Entscheidung", "ASH: vielen Dank für meine aller erstes Pokemon", "ASH: Ich freue mich auf die große Reise"};
-    private static final String[] DIALOG2 = new String[]{"FREMDE: Hallo, lass uns kämpfen","" ,"Fremde: Wow, du bist echt gut, viel Glück auf deiner Reise"};
+    private static final String[] DIALOG2 = new String[]{"FREMDE: Hallo, lass uns kämpfen", "", "Fremde: Wow, du bist echt gut, viel Glück auf deiner Reise"};
     private static final String[] DIALOG2_1 = new String[]{"FREMDE: Bevor ich gegen dich kämpfen kann, musst du dir dein erstes Pokemon bei Herr Wagner abholen"};
     private static final String[] DIALOG3 = new String[]{"ASH: Hallo!", "ASH: Was machen du hier ganz alleine im Wald?", "FREMDER: Hallo!", "FREMDER: Ich bin nicht alleine ich habe meine Pokemon hier bei mir.", "FREMDER: Ich habe vor sehr langer Zeit mit der Forschungen in verschiedenen Regionen über die unterschiedlichsten Pokemon begonnen.", "FREMDER: Ich habe beispielsweise für alle Pokemon eine Art „Supertrank“ gebraut. Dieser Trank lässt die Pokemon nach dem Kampf sofort wieder volles Leben regenerieren!", "FREMDER: Wenn deine Pokemon Schaden genommen haben, kannst du einfach zu meinem Bruder da drüben gehen und der heilt sie wieder voll", "ASH: Super vielen Dank!"};
     private static final String[] DIALOG4 = new String[]{"HERR WAGNER: Willkommen du hast also meine geheime Sammlung mit ein Paar Artefakten aus berühmten Spielen gefunden!", "HERR WAGNER: Kuck dich ruhig in Ruhe um."};
@@ -65,7 +65,7 @@ public class GameDialogs {
             dialog1count = dialog1count + 1;
             setAllowMovement(false);
         }
-        if (dialog1count == 6) {
+        if (dialog1count == 8) {
             Game.screens().display(SelectPokemonScreen.NAME);
         }
         return textString;

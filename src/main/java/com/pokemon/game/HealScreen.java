@@ -28,7 +28,6 @@ public class HealScreen extends GameScreen {
                 gettingHealed = false;
             }
         });
-
     }
 
     public HealScreen() {
@@ -92,6 +91,7 @@ public class HealScreen extends GameScreen {
 
         Input.keyboard().onKeyTyped(KeyEvent.VK_ESCAPE, e -> {
             gettingHealed = false;
+            Game.screens().display(InGameScreen.NAME);
         });
 
         Input.keyboard().onKeyTyped(KeyEvent.VK_DOWN, e -> {

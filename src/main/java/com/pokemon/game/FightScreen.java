@@ -244,5 +244,9 @@ public class FightScreen extends GameScreen {
         attackbuttons.get(0).setText(pokemon1.attack1.name);
         System.out.println(pokemon1.attack1.name);
         attackbuttons.get(1).setText(pokemon1.attack2.name);
+
+        for (ImageComponent b : attackbuttons) {
+            b.setEnabled(true);
+        }
     }
 }
