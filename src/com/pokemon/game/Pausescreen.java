@@ -57,17 +57,17 @@ public class Pausescreen extends GameScreen {
         final double centerY = Game.window().getResolution().getHeight() / 2;
         final double buttonWidth = 450;
 
-        Color backdropColor = new Color(0,0,0,100);
-        ImageComponent backdrop = new ImageComponent(0,0, Game.window().getWidth(),Game.window().getHeight());
+        Color backdropColor = new Color(0, 0, 0, 100);
+        ImageComponent backdrop = new ImageComponent(0, 0, Game.window().getWidth(), Game.window().getHeight());
         backdrop.getAppearance().setTransparentBackground(false);
         backdrop.getAppearance().setBackgroundColor1(backdropColor);
         backdrop.getAppearanceHovered().setTransparentBackground(false);
         backdrop.getAppearanceHovered().setBackgroundColor1(backdropColor);
 
-        menuEntries = new String[]{"Fortsetzen","Einstellungen","Zurück zum Titelbildschirm", "Spiel beenden"};
+        menuEntries = new String[]{"Fortsetzen", "Spiel beenden"};
 
         Image headlineImage = Resources.images().get("assets/headlines/pause.png");
-        ImageComponent headline = new ImageComponent(0,0, headlineImage);
+        ImageComponent headline = new ImageComponent(0, 0, headlineImage);
 
         headline.setX(centerX - headline.getWidth() / 2);
         headline.setY(centerY - headline.getHeight() - 50);
@@ -75,17 +75,10 @@ public class Pausescreen extends GameScreen {
         menu = new KeyboardMenu(centerX - buttonWidth / 2, centerY * 1, buttonWidth, centerY / 2, menuEntries);
 
         menu.onConfirm(index -> {
-            System.out.println(index + " "+menuEntries[index]);
+            System.out.println(index + " " + menuEntries[index]);
             switch (index) {
                 case 0: // resume
                     this.toggle();
-                    return;
-                case 1: // settings
-//                    TODO: settings screen
-//                    Game.screens().display("settings");
-                    return;
-                case 2: // return to home
-//                    TODO: home screen
                     return;
                 case 3: // quite game
 //                    TODO: save game
