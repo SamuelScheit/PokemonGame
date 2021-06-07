@@ -144,7 +144,7 @@ public class GameDialogs {
             dialog5count = dialog5count + 1;
             setAllowMovement(false);
         }
-        if (dialog1count == 3) {
+        if (dialog5count == 3) {
             Game.screens().display(HealScreen.NAME);
         }
 
@@ -161,7 +161,7 @@ public class GameDialogs {
             dialog5_1count = dialog5_1count + 1;
             setAllowMovement(false);
         }
-        if (dialog1count == 4) {
+        if (dialog5_1count == 4) {
             Game.screens().display(HealScreen.NAME);
         }
 
@@ -178,7 +178,7 @@ public class GameDialogs {
             dialog6count = dialog6count + 1;
             setAllowMovement(false);
         }
-        if (dialog1count == 3) {
+        if (dialog6count == 3) {
             System.out.println("fight!");
             FightScreen screen = (FightScreen) Game.screens().get(FightScreen.NAME);
             screen.pokemon1 = Player.instance().inventory.get(0);
@@ -195,7 +195,7 @@ public class GameDialogs {
             textString = null;
             setAllowMovement(true);
         } else {
-            textString = DIALOG7[dialog3count];
+            textString = DIALOG7[dialog7count];
             dialog7count = dialog7count + 1;
             setAllowMovement(false);
         }
@@ -209,7 +209,7 @@ public class GameDialogs {
             textString = null;
             setAllowMovement(true);
         } else {
-            textString = DIALOG3[dialog8count];
+            textString = DIALOG8[dialog8count];
             dialog8count = dialog8count + 1;
             setAllowMovement(false);
         }
@@ -223,7 +223,7 @@ public class GameDialogs {
             textString = null;
             setAllowMovement(true);
         } else {
-            textString = DIALOG9[dialog3count];
+            textString = DIALOG9[dialog9count];
             dialog9count = dialog9count + 1;
             setAllowMovement(false);
         }
