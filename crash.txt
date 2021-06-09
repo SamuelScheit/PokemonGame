@@ -1,9 +1,0 @@
-Fri Jun 04 13:37:45 CEST 2021 Main Update Loop threw an exception:
-java.lang.NullPointerException
-	at de.gurkenlabs.litiengine.graphics.DebugRenderer.renderMapDebugInfo(DebugRenderer.java:135)
-	at de.gurkenlabs.litiengine.environment.Environment.render(Environment.java:2296)
-	at de.gurkenlabs.litiengine.gui.screens.GameScreen.render(GameScreen.java:25)
-	at com.pokemon.game.InGameScreen.render(InGameScreen.java:22)
-	at de.gurkenlabs.litiengine.graphics.RenderComponent.render(RenderComponent.java:123)
-	at de.gurkenlabs.litiengine.GameLoop.process(GameLoop.java:92)
-	at de.gurkenlabs.litiengine.UpdateLoop.run(UpdateLoop.java:57)
